@@ -1,0 +1,1170 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../devops_02/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>p01 - Zona Devops</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#control-de-versiones-y-cicd-parte-i" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Zona Devops" class="md-header__button md-logo" aria-label="Zona Devops" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Zona Devops
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              p01
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Zona Devops" class="md-nav__button md-logo" aria-label="Zona Devops" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Zona Devops
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inicio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    p01
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    p01
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introducción
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-primera-parte-forzar-el-uso-de-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Primera parte: forzar el uso de Pull Request
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-segunda-parte-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Segunda parte: Actions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Segunda parte: Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1. Introducción
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-action-definicion" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2. Action: definición
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-action-anadir-al-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3. Action: añadir al repositorio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-action-prueba" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4. Action: prueba
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-tercera-parte-action-con-require-status-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Tercera parte: Action con require status checks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Tercera parte: Action con require status checks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-configurar-el-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1. Configurar el repositorio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-probar-action-con-check-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2. Probar Action con check status
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-corregir-el-codigo-para-superar-el-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3. Corregir el código para superar el check
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-ejercicio-anadir-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Ejercicio: añadir Testing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-enlaces-de-ampliacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Enlaces de ampliación
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops_02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    p02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops_03_tarea/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    p03 tarea
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fuentes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ficheros
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Utiles
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Utiles
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops_05_testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops_04_ayudas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Complementos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introducción
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-primera-parte-forzar-el-uso-de-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Primera parte: forzar el uso de Pull Request
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-segunda-parte-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Segunda parte: Actions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Segunda parte: Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1. Introducción
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-action-definicion" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2. Action: definición
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-action-anadir-al-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3. Action: añadir al repositorio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-action-prueba" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4. Action: prueba
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-tercera-parte-action-con-require-status-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Tercera parte: Action con require status checks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Tercera parte: Action con require status checks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-configurar-el-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1. Configurar el repositorio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-probar-action-con-check-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2. Probar Action con check status
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-corregir-el-codigo-para-superar-el-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3. Corregir el código para superar el check
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-ejercicio-anadir-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Ejercicio: añadir Testing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-enlaces-de-ampliacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Enlaces de ampliación
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="control-de-versiones-y-cicd-parte-i">Control de versiones y CI/CD - Parte I<a class="headerlink" href="#control-de-versiones-y-cicd-parte-i" title="Permanent link">&para;</a></h1>
+<h2 id="1-introduccion">1. Introducción<a class="headerlink" href="#1-introduccion" title="Permanent link">&para;</a></h2>
+<p>Necesitará una cuenta en GitHub y comunicar su usuario a través de una tarea en la plataforma. Ya se supone conocido el uso básico de Git y GitHub, Git Flow o el uso de ramas.</p>
+<p>Además se repasa el uso de Pull Request (PR), y se introduce el uso de Actions y de Secrets de GitHub. Finalmente se integra todo lo anterior con un despliegue de contenedores en AWS.</p>
+<h2 id="2-primera-parte-forzar-el-uso-de-pull-request">2. Primera parte: forzar el uso de <em>Pull Request</em><a class="headerlink" href="#2-primera-parte-forzar-el-uso-de-pull-request" title="Permanent link">&para;</a></h2>
+<p>Pasos a dar:</p>
+<ol>
+<li>
+<p>Crear repositorio público en GitHub con fichero README.</p>
+</li>
+<li>
+<p>Activar en la configuración del repositorio la protección de rama: <em>Settings/Code Automation/Branches/Branch protection rules</em>
+    &gt; Aviso: hay dos formar de definir estos setting, la "clasica" y la nueva. En las instrucciones usamos la clásica.</p>
+<ul>
+<li>Elegir <code>main</code> </li>
+<li>Activar <strong>Require a pull request before merging</strong></li>
+<li>Activar <strong>Do not allow bypassing the above settings</strong> (para forzar a que el dueño del repositorio también tenga que hacer PR)
+<img alt="" src="../figuras/branch_protect.png" /></li>
+</ul>
+</li>
+<li>
+<p>Clonar el repositorio creado en local. Use el acceso con certificado (o por token). </p>
+</li>
+<li>
+<p>Cambiar al directorio creado 
+    <div class="highlight"><pre><span></span><code>$ git clone git@github.com:angoies/23-demo-pr.git
+$ cd 23-demo-pr/
+</code></pre></div></p>
+<blockquote>
+<p>recordatorio: crear certificado (y luego subirlo a GH)
+<div class="highlight"><pre><span></span><code>$ ssh-keygen -t ed25519 -C &quot;jgomez@iesromerovargas.com&quot;
+$ cat .ssh/id_ed25519.pub
+</code></pre></div></p>
+</blockquote>
+</li>
+<li>
+<p>Crear una rama con nombre por ejemplo <code>feature-xyz</code> y moverse a ella.
+    <div class="highlight"><pre><span></span><code>clases@vm:~/23-demo-pr$ git branch feature-xyz
+clases@vm:~/23-demo-pr$ git switch feature-xyz 
+</code></pre></div></p>
+</li>
+<li>
+<p>Crear un fichero de texto de prueba en la rama <code>feature-xyz</code>
+    <div class="highlight"><pre><span></span><code>clases@vm:~/23-demo-pr$ echo &quot;fichero de prueba para hacer PR&quot; &gt; doc.txt
+clases@vm:~/23-demo-pr$ git add doc.txt 
+clases@vm:~/23-demo-pr$ git commit -m &quot;update para prueba de PR&quot;
+[feature-xyz c974611] update para prueba de PR
+1 file changed, 1 insertion(+)
+create mode 100644 doc.txt
+clases@vm:~/23-demo-pr$ 
+</code></pre></div></p>
+</li>
+<li>
+<p>Añadir el fichero al stage (<code>git add</code>) y confirmarlo en el repositorio ( <code>git commit</code>)
+    <div class="highlight"><pre><span></span><code>clases@vm:~/23-demo-pr$ git add doc.txt 
+clases@vm:~/23-demo-pr$ git commit -m &quot;update para prueba de PR&quot;
+[feature-xyz c974611] update para prueba de PR
+1 file changed, 1 insertion(+)
+create mode 100644 doc.txt
+clases@vm:~/23-demo-pr$ 
+</code></pre></div></p>
+</li>
+<li>
+<p>Subir los cambios a GitHub mediante <code>git push</code>: no se realiza al no estar definido el <em>upstream</em> de la rama</p>
+<div class="highlight"><pre><span></span><code>clases@vm:~/23-demo-pr$ git push
+fatal: La rama actual feature-xyz no tiene una rama upstream.
+Para empujar la rama actual y configurar el remoto como upstream, usa
+
+    git push --set-upstream origin feature-xyz
+
+Para hacer que esto pase automáticamente para las ramas que no rastrean
+un upstream, mira &#39;push.autoSetupRemote&#39; en &#39;git help config&#39;.
+
+clases@vm:~/23-demo-pr$ 
+</code></pre></div>
+</li>
+<li>
+<p>El mensaje de error nos indica como proceder: hacer <code>git push</code> configuradno e indicando  el <em>upstream</em>:
+    <div class="highlight"><pre><span></span><code>clases@vm:~/23-demo-pr$ git push --set-upstream origin feature-xyz
+Enter passphrase for key &#39;/home/clases/.ssh/id_ed25519&#39;: 
+Enumerando objetos: 4, listo.
+Contando objetos: 100% (4/4), listo.
+Compresión delta usando hasta 4 hilos
+Comprimiendo objetos: 100% (2/2), listo.
+Escribiendo objetos: 100% (3/3), 317 bytes | 317.00 KiB/s, listo.
+Total 3 (delta 0), reusados 0 (delta 0), pack-reusados 0
+remote: 
+remote: Create a pull request for &#39;feature-xyz&#39; on GitHub by visiting:
+remote:      https://github.com/angoies/23-demo-pr/pull/new/feature-xyz
+remote: 
+To github.com:angoies/23-demo-pr.git
+* [new branch]      feature-xyz -&gt; feature-xyz
+rama &#39;feature-xyz&#39; configurada para rastrear &#39;origin/feature-xyz&#39;.
+clases@vm:~/23-demo-pr$ 
+</code></pre></div></p>
+</li>
+<li>
+<p>Observe que en la salida del comando  indica que es necesario <strong>crear un pull request</strong> y nos proporciona el enlace para hacerlo. Si lo sigue accedera a GitHub para abrir un Pull Request:</p>
+<p><img alt="" src="../figuras/open_pr.png" /></p>
+<p>También es posible hacerlo accediendo a GitHub ya que detecta el <code>push</code> y nos ofrece hacer el PR:</p>
+<p><img alt="" src="../figuras/aviso_pr.png" /></p>
+</li>
+<li>
+<p>Crear el Pull Request </p>
+</li>
+<li>
+<p>Una vez creado el PR puede revisarlo en la pestaña <em>Pull Request</em> antes de fusionar con la rama principal o <code>main</code>.</p>
+<p><img alt="" src="../figuras/pr_list.png" /></p>
+<p>Observe que no se ha configurado ningún proceso de integración continua:</p>
+<p><img alt="" src="../figuras/pr_review.png" /></p>
+</li>
+<li>
+<p>Pulse el botón  <strong>Merge Pull Request</strong> y al confirmar el <em>merge</em> el fichero se añade a la rama principal. </p>
+</li>
+</ol>
+<p><img alt="" src="../figuras/code_tras_pr.png" /></p>
+<h2 id="3-segunda-parte-actions">3. Segunda parte: <em>Actions</em><a class="headerlink" href="#3-segunda-parte-actions" title="Permanent link">&para;</a></h2>
+<h3 id="31-introduccion">3.1. Introducción<a class="headerlink" href="#31-introduccion" title="Permanent link">&para;</a></h3>
+<p>Las <strong>Actions de GitHub</strong> son una herramienta de <strong>integración continua (CI)</strong> y <strong>despliegue continuo (CD)</strong> proporcionada por GitHub. Te permiten automatizar flujos de trabajo relacionados con tu código, como la compilación, pruebas, despliegues y otras tareas personalizadas.</p>
+<p>Principales características:</p>
+<ol>
+<li>Automatización de flujos de trabajo: Puedes crear archivos de configuración (generalmente en formato YAML) que definen una secuencia de pasos a ejecutar cada vez que ocurre un evento, como un <em>push</em>, <em>pull request</em> o publicación de una nueva versión (<em>release</em>).</li>
+<li>Ejecución en entornos personalizados: Las acciones pueden ejecutarse en entornos como Linux, Windows o macOS, utilizando runners proporcionados por GitHub o personalizados.</li>
+<li>Acceso a un ecosistema amplio: GitHub Actions tiene un mercado (GitHub Marketplace) con miles de acciones listas para usar, como herramientas de compilación, despliegues a la nube y gestión de dependencias.</li>
+<li>Alta flexibilidad: Puedes configurar desde tareas simples (por ejemplo, ejecutar tests) hasta flujos complejos que integren múltiples servicios.</li>
+</ol>
+<p>Ventajas:</p>
+<ul>
+<li>Integrado en GitHub: No necesitas herramientas externas para automatizar.</li>
+<li>Escalabilidad: Puedes usar tanto runners gratuitos como configuraciones avanzadas.</li>
+<li>Colaborativo: Perfecto para equipos distribuidos que trabajan en proyectos abiertos o cerrados.</li>
+</ul>
+<p>Como ejemplo se  añadirá un  <em>Action</em>. Su objetivo es que cuando se haga un PR a la rama principal se haga el proceso de <em>linting</em> de los ficheros nuevos o modificados en esa rama. El <em>Action</em> dará como resultado si el proceso de <em>linting</em> es correcto o no. En este ejemplo se usarán ficheros Python y como <em>linter</em> las herramientas <em>pylint</em> o <em>flake8</em>.</p>
+<h3 id="32-action-definicion">3.2. Action: definición<a class="headerlink" href="#32-action-definicion" title="Permanent link">&para;</a></h3>
+<p>Las Action se configuran mediante ficheros YAML en el directorio <code>.github/workflows</code>. Puede usar las Actions que proporciona GitHub o crearla de forma manual usando la opción <em>Skip this and set up a workflow yourself</em>. </p>
+<p>Para simplificar este apartado se le proporciona ya un fichero creado a partir de una de las <em>Actions</em> que proporciona GitHub.</p>
+<blockquote>
+<p>Nota: En el <a href="https://github.com/marketplace?type=actions">marketplace</a> hay otras soluciones para automatizar este proceso.</p>
+</blockquote>
+<p>El fichero <code>lint.yml</code> es:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pylint</span>
+
+<span class="nt">on</span><span class="p">:</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span><span class="w">  </span><span class="c1"># Cambia según rama principal</span>
+<span class="w">    </span><span class="nt">paths</span><span class="p">:</span><span class="w">  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;**.py&#39;</span><span class="w"> </span><span class="c1"># Se dispara sólo con esos ficheros</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">build</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">strategy</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">matrix</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;3.10&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;3.13&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># Paso 1: Checkout del repositorio</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout Code</span>
+<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<span class="w">    </span><span class="c1"># Paso 2: Configurar Python</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set up Python ${{ matrix.python-version }}</span>
+<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span>
+<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ matrix.python-version }}</span>
+<span class="w">    </span><span class="c1"># Paso 3: Instalar dependencias        </span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">python -m pip install --upgrade pip</span>
+<span class="w">        </span><span class="no">pip install pylint</span>
+<span class="w">    </span><span class="c1"># Paso 4: Ejecutar pylint</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Analysing the code with pylint</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">pylint $(git ls-files &#39;*.py&#39;)</span>
+</code></pre></div>
+<p>Este archivo define un GitHub Action para analizar el código Python con la herramienta <code>pylint</code> cada vez que se realice un <em>pull_request</em> . A continuación, se detalla el funcionamiento:</p>
+<ol>
+<li>Nombre del Workflow: <code>Pylint</code>.</li>
+<li>Evento Desencadenante: se ejecuta cuando hay un <em>push</em> al repositorio. Está configurado para ejecutarse solo si el <em>push</em> incluye cambios en archivos con la extensión <code>.py</code>, lo que se define en la sección <code>paths: - '**.py'</code>.</li>
+<li>Definición de los trabajos (<code>jobs</code>):</li>
+<li>Trabajo: <strong><code>build</code></strong>:<ul>
+<li>Entorno de Ejecución: Se ejecuta en un sistema operativo <code>ubuntu-latest</code>.</li>
+<li>Estrategia de Matriz: El Action se ejecuta con dos versiones de Python (<code>3.9</code> y <code>3.10</code>), probando cada una de manera independiente.</li>
+<li>Pasos del Workflow:</li>
+<li>Checkout del Código: Utiliza la acción oficial <code>actions/checkout@v3</code> para clonar el repositorio y obtener el código fuente.</li>
+<li>Configuración de Python: Usa la acción oficial<code>actions/setup-python@v3</code> para establecer el entorno Python correspondiente a la versión definida en la matriz (<code>3.9</code> o <code>3.10</code>).</li>
+<li>Instalación de dependencias: Actualiza <code>pip</code> y  luego instala <code>pylint</code>, que es la herramienta de análisis de código.</li>
+<li>Análisis del Código: Este comando encuentra todos los archivos .py rastreados por Git en el repositorio y los analiza con pylint. Los resultados del análisis se muestran en la salida del Action.</li>
+</ul>
+</li>
+</ol>
+<p>Como puede observar el objetivo principal de este Action es:</p>
+<ul>
+<li>Asegurar la calidad del código Python al verificar estándares de estilo y errores potenciales.</li>
+<li>Automatizar el análisis estático del código con <code>pylint</code> para cada <em>push</em> en el repositorio, reduciendo errores y manteniendo un código consistente.</li>
+</ul>
+<h3 id="33-action-anadir-al-repositorio">3.3. Action: añadir al repositorio<a class="headerlink" href="#33-action-anadir-al-repositorio" title="Permanent link">&para;</a></h3>
+<p>Puede incorporar el fichero con la Action anterior de dos formas:</p>
+<ul>
+<li>
+<p>Añadir el Action desde la pestaña Actions de GitHub. Tendrá además que hacer un PR ya que no olvide que la rama <code>main</code> está protegida. El Action se almacena en el directorio <code>.github/workflows</code>. Puede comprobar que se ha añadido correctamente en la pestaña de <em>Actions</em></p>
+<p><img alt="" src="../figuras/action_list.png" /></p>
+</li>
+<li>
+<p>Crear el fichero en su repositorio local. Tendrá que crear el directorio <code>.github/workflows</code> y el fichero dentro del mismo. Luego trabajar en una rama, y subir el fichero a GitHub haciendo un Pull Request. Comprobar que se ha creado el Action en la pestaña Actions.</p>
+</li>
+</ul>
+<h3 id="34-action-prueba">3.4. Action: prueba<a class="headerlink" href="#34-action-prueba" title="Permanent link">&para;</a></h3>
+<p>Necesita un fichero Python en el repositorio local para subirlo y comprobar que el Action se activa y hace el linting. Para ello basta un fichero muy simple con algún error. </p>
+<ul>
+<li>
+<p>Crear el fichero Python <code>app.py</code> en su equipo:</p>
+<div class="highlight"><pre><span></span><code><span class="n">clases</span><span class="nd">@vm</span><span class="p">:</span><span class="o">~/</span><span class="mi">23</span><span class="o">-</span><span class="n">demo</span><span class="o">-</span><span class="n">pr</span><span class="err">$</span> <span class="n">git</span> <span class="n">branch</span> <span class="n">miapp</span>
+<span class="n">clases</span><span class="nd">@vm</span><span class="p">:</span><span class="o">~/</span><span class="mi">23</span><span class="o">-</span><span class="n">demo</span><span class="o">-</span><span class="n">pr</span><span class="err">$</span> <span class="n">git</span> <span class="n">switch</span> <span class="n">miapp</span> 
+<span class="n">Cambiado</span> <span class="n">a</span> <span class="n">rama</span> <span class="s1">&#39;miapp&#39;</span>
+<span class="n">clases</span><span class="nd">@vm</span><span class="p">:</span><span class="o">~/</span><span class="mi">23</span><span class="o">-</span><span class="n">demo</span><span class="o">-</span><span class="n">pr</span><span class="err">$</span> <span class="n">code</span> <span class="n">app</span><span class="o">.</span><span class="n">py</span>
+<span class="n">clases</span><span class="nd">@vm</span><span class="p">:</span><span class="o">~/</span><span class="mi">23</span><span class="o">-</span><span class="n">demo</span><span class="o">-</span><span class="n">pr</span><span class="err">$</span> <span class="n">cat</span> <span class="n">app</span><span class="o">.</span><span class="n">py</span> 
+<span class="sd">&quot;&quot;&quot; Docstring del módulo &quot;&quot;&quot;</span>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">suma</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; docstring function</span>
+<span class="sd">        # debe dar errores en linter</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;no se usa&quot;</span>
+        <span class="k">return</span> <span class="n">a</span><span class="o">+</span> <span class="n">b</span>
+    <span class="n">clases</span><span class="nd">@vm</span><span class="p">:</span><span class="o">~/</span><span class="mi">23</span><span class="o">-</span><span class="n">demo</span><span class="o">-</span><span class="n">pr</span><span class="err">$</span>
+</code></pre></div>
+</li>
+<li>
+<p>Repetimos el proceso de <code>git add</code>, <code>git commit</code>, <code>git push</code>, etc
+    <div class="highlight"><pre><span></span><code>clases@vm:~/23-demo-pr$ git add app.py 
+clases@vm:~/23-demo-pr$ git commit -m &quot;añadimos fichero .py para probar Action&quot;
+[miapp c02ded4] añadimos fichero .py para probar Action
+1 file changed, 9 insertions(+)
+create mode 100644 app.py
+clases@vm:~/23-demo-pr$ git push
+fatal: La rama actual miapp no tiene una rama upstream.
+Para empujar la rama actual y configurar el remoto como upstream, usa
+
+    git push --set-upstream origin miapp
+
+Para hacer que esto pase automáticamente para las ramas que no rastrean
+un upstream, mira &#39;push.autoSetupRemote&#39; en &#39;git help config&#39;.
+
+clases@vm:~/23-demo-pr$ git push --set-upstream origin miapp
+Enter passphrase for key &#39;/home/clases/.ssh/id_ed25519&#39;: 
+Enumerando objetos: 4, listo.
+Contando objetos: 100% (4/4), listo.
+Compresión delta usando hasta 4 hilos
+Comprimiendo objetos: 100% (3/3), listo.
+Escribiendo objetos: 100% (3/3), 485 bytes | 485.00 KiB/s, listo.
+Total 3 (delta 0), reusados 0 (delta 0), pack-reusados 0
+remote: 
+remote: Create a pull request for &#39;miapp&#39; on GitHub by visiting:
+remote:      https://github.com/angoies/23-demo-pr/pull/new/miapp
+remote: 
+To github.com:angoies/23-demo-pr.git
+* [new branch]      miapp -&gt; miapp
+rama &#39;miapp&#39; configurada para rastrear &#39;origin/miapp&#39;.
+clases@vm:~/23-demo-pr$
+</code></pre></div></p>
+</li>
+<li>
+<p>Hay que hacer un <em>Pull Request</em> como indica  la salida del comando. </p>
+</li>
+<li>Una vez realizado revisarlo: vea como no se han superado los tests, pero aún así es posible hacer un <em>merge</em> e incorporar el fichero a la rama <code>main</code>:</li>
+</ul>
+<p><img alt="" src="../figuras/action_failed.png" /></p>
+<ul>
+<li>Puede revisar los detalles del error en los <em>Details</em>:</li>
+</ul>
+<p><img alt="" src="../figuras/action_failed_details.png" /></p>
+<h2 id="4-tercera-parte-action-con-require-status-checks">4. Tercera parte: Action con <em>require status checks</em><a class="headerlink" href="#4-tercera-parte-action-con-require-status-checks" title="Permanent link">&para;</a></h2>
+<p>El <strong>objetivo es impedir la fusión del código si no se superan los test</strong> del Action. Para ello es necesario hacer cambios en la configuración del repositorio.</p>
+<h3 id="41-configurar-el-repositorio">4.1. Configurar el repositorio<a class="headerlink" href="#41-configurar-el-repositorio" title="Permanent link">&para;</a></h3>
+<p>Primero es necesario modificar algunos <em>settings</em> del repositorio. En este caso debe:</p>
+<ul>
+<li>
+<p>Activar la opción <strong><em>Branches/ Protect matching branches / Require status checks to pass before merging</em></strong> </p>
+<ul>
+<li>En la entrada de búsqueda se indican el nombre de las tareas del Action que debe superar. En cuanto escribe "build" le ofrece las dos posibilidades, coja la 3.10 por ejemplo (se pueden añadir varias)</li>
+<li>No olvide guardar los cambios.</li>
+</ul>
+<p><img alt="" src="../figuras/branch_status.png" /></p>
+</li>
+</ul>
+<h3 id="42-probar-action-con-check-status">4.2. Probar Action con check status<a class="headerlink" href="#42-probar-action-con-check-status" title="Permanent link">&para;</a></h3>
+<p>Los pasos a dar son:</p>
+<ol>
+<li>Edite el fichero <code>app.py</code>. Debe modificar algo para que se pueda hacer un <code>git commit</code>, pero mantener el error de la variable no usada:
+    <div class="highlight"><pre><span></span><code>clases@vm:~/23-demo-pr$ git add app.py 
+clases@vm:~/23-demo-pr$ git commit -m &quot;segunda prueba del Action: no debe dejar merge&quot;
+[miapp 89a7343] segunda prueba del Action: no debe dejar merge
+1 file changed, 4 insertions(+), 2 deletions(-)
+clases@vm:~/23-demo-pr$
+</code></pre></div></li>
+<li>
+<p>Suba los cambios a Github:
+    <div class="highlight"><pre><span></span><code>clases@vm:~/23-demo-pr$ git push
+Enter passphrase for key &#39;/home/clases/.ssh/id_ed25519&#39;: 
+Enumerando objetos: 5, listo.
+Contando objetos: 100% (5/5), listo.
+Compresión delta usando hasta 4 hilos
+Comprimiendo objetos: 100% (3/3), listo.
+Escribiendo objetos: 100% (3/3), 347 bytes | 347.00 KiB/s, listo.
+Total 3 (delta 2), reusados 0 (delta 0), pack-reusados 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To github.com:angoies/23-demo-pr.git
+  c02ded4..89a7343  miapp -&gt; miapp
+clases@vm:~/23-demo-pr$ 
+</code></pre></div></p>
+<p>Observe que en este ejemplo <code>git push</code> bo ofrece configurar el <em>upstream</em> porque ya estaba hecho antes, ni ofrece el enlace al <em>Pull Request</em>. En este caso particular es debido a que se está trabajando sobre la misma rama y el Pull Request anterior no se ha cerrado (puede ser que en su ejecución sea distitno si ha iniciado una nueva rama por ejemplo). En este caso para continuar con el PR debe ir a GitHub, donde le indica esa posibilidad:</p>
+<p><img alt="" src="../figuras/pr_en_main.png" /></p>
+</li>
+<li>
+<p>Puede comprobar en el Pull Request abierto que <strong>ahora no es posible aceptar los cambios y hacer un merge</strong>:</p>
+<p><img alt="" src="../figuras/action_failed_status_check.png" /></p>
+</li>
+</ol>
+<h3 id="43-corregir-el-codigo-para-superar-el-check">4.3. Corregir el código para superar el check<a class="headerlink" href="#43-corregir-el-codigo-para-superar-el-check" title="Permanent link">&para;</a></h3>
+<p>Posible proceso de correción:</p>
+<ol>
+<li>El adminstrador comenta en el PR que es necesario hacer correcciones. </li>
+<li>El editor en local revisa el código, corrige los errores y vuelve a realizar el push.</li>
+<li>Este nuevo commit se refleja en el <em>Pull Request</em> ya abierto.</li>
+<li>
+<p>Ahora el código si pasa el proceso de lintig y el administrador puede hacer el merge.</p>
+<p><img alt="" src="../figuras/action_ok_status_check.png" /></p>
+</li>
+</ol>
+<h2 id="5-ejercicio-anadir-testing">5. Ejercicio: añadir Testing<a class="headerlink" href="#5-ejercicio-anadir-testing" title="Permanent link">&para;</a></h2>
+<p>Se propone como ejercicio añadir al Action pruebas (testing) del código. Se le proporciona  un fichero de pruebas <code>test_app.py</code> que verifica la función <code>suma</code> del código del módulo <code>app.py</code>. Este ejemplo usa el módulo <code>unittest</code> de Python.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">app</span><span class="w"> </span><span class="kn">import</span> <span class="n">suma</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">SumaTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Docstring class &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Docstring def</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">suma</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Docstring def &quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">suma</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">test3</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Esta prueba DEBE FALLAR&quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">suma</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;4&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+<p>Para poder pasar esos test unitarios de forma automática debe modificar el fichero YAML y añadir un nuevo <strong><code>step</code></strong> que invoque las pruebas (usando el comando <code>python3 -u -m unittest discover</code>):</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="c1"># .....</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Analysing the code with pylint</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">pylint $(git ls-files &#39;*.py&#39;)</span>
+
+<span class="w">    </span><span class="c1"># Añadido para hacer testing</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run Python unit tests</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python3 -u -m unittest discover</span>
+</code></pre></div>
+<h2 id="6-enlaces-de-ampliacion">6. Enlaces de ampliación<a class="headerlink" href="#6-enlaces-de-ampliacion" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Control de versiones</p>
+</li>
+<li>
+<p><a href="https://git-scm.com/">Git</a></p>
+</li>
+<li><a href="https://github.com/">GitHub</a></li>
+<li>
+<p><a href="https://www.atlassian.com/es/git/tutorials/comparing-workflows/gitflow-workflow">Git Flow</a></p>
+</li>
+<li>
+<p>Actions</p>
+</li>
+<li>
+<p><a href="https://resources.github.com/actions/github-actions-cheat/">GitHub Actions Cheat Sheet</a></p>
+</li>
+<li><a href="https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions">Understanding GitHub Actions</a></li>
+<li>
+<p><a href="https://binary-studio.com/blog/2021/12/21/lint-your-project-with-github-actions/">Lint your project with Github Actions</a> </p>
+</li>
+<li>
+<p>Python</p>
+</li>
+<li>
+<p><a href="https://flask.palletsprojects.com/en/3.0.x/">Flask</a></p>
+</li>
+<li><a href="https://docs.python.org/3/library/unittest.html">unittest</a></li>
+<li><a href="https://flake8.pycqa.org/en/latest/">Flake8</a></li>
+<li><a href="https://github.com/marketplace/actions/python-flake8-lint">Python lint actions</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>

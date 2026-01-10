@@ -1,0 +1,1118 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../devops_01/">
+      
+      
+        <link rel="next" href="../devops_03_tarea/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>p02 - Zona Devops</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#control-de-versiones-y-cicd-parte-ii" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Zona Devops" class="md-header__button md-logo" aria-label="Zona Devops" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Zona Devops
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              p02
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Zona Devops" class="md-nav__button md-logo" aria-label="Zona Devops" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Zona Devops
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inicio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops_01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    p01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    p02
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    p02
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introducción
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-conociendo-la-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Conociendo la aplicación
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Conociendo la aplicación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-prueba-en-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1. Prueba en local
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-creacion-imagen-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2. Creación imagen Docker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-prueba-imagen-en-local-con-composeyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3. Prueba imagen en local con compose.yml
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-subir-imagen-a-dockerhub" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4. Subir imagen a dockerhub
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-actions-build-and-push" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Actions: build and push
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Actions: build and push">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-secretos-en-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1. Secretos en GitHub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-creando-el-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2. Creando el Action
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-action-para-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Action para AWS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Action para AWS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-prueba" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1. Prueba
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-anexo-orden-de-ejecucion-en-los-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Anexo: Orden de ejecución en los Actions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Anexo: Orden de ejecución en los Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-action-con-varios-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1. Action con varios jobs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-varios-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2. Varios Actions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops_03_tarea/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    p03 tarea
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fuentes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ficheros
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Utiles
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Utiles
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops_05_testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops_04_ayudas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Complementos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introducción
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-conociendo-la-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Conociendo la aplicación
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Conociendo la aplicación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-prueba-en-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1. Prueba en local
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-creacion-imagen-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2. Creación imagen Docker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-prueba-imagen-en-local-con-composeyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3. Prueba imagen en local con compose.yml
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-subir-imagen-a-dockerhub" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4. Subir imagen a dockerhub
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-actions-build-and-push" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Actions: build and push
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Actions: build and push">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-secretos-en-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1. Secretos en GitHub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-creando-el-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2. Creando el Action
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-action-para-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Action para AWS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Action para AWS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-prueba" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1. Prueba
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-anexo-orden-de-ejecucion-en-los-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Anexo: Orden de ejecución en los Actions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Anexo: Orden de ejecución en los Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-action-con-varios-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1. Action con varios jobs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-varios-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2. Varios Actions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="control-de-versiones-y-cicd-parte-ii">Control de versiones y CI/CD - Parte II<a class="headerlink" href="#control-de-versiones-y-cicd-parte-ii" title="Permanent link">&para;</a></h1>
+<h2 id="1-introduccion">1. Introducción<a class="headerlink" href="#1-introduccion" title="Permanent link">&para;</a></h2>
+<p>Se parte de un aplicación Python sobre Flask. El objetivo es que cambios en el repositorio en Github:</p>
+<ol>
+<li>disparen la creación de una imagen Docker, </li>
+<li>que dicha imagen se actualice en DockerHub, </li>
+<li>y que finalmente  se despliegue en AWS.</li>
+</ol>
+<h2 id="2-conociendo-la-aplicacion">2. Conociendo la aplicación<a class="headerlink" href="#2-conociendo-la-aplicacion" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Aviso</strong>: antes de comenzar se recomienda ejecutar estos comandos en la máquina virtual:</p>
+<div class="highlight"><pre><span></span><code>$ sudo systemctl restart docker.service 
+$ sudo systemctl restart networking.service
+</code></pre></div>
+</blockquote>
+<h3 id="21-prueba-en-local">2.1. Prueba en local<a class="headerlink" href="#21-prueba-en-local" title="Permanent link">&para;</a></h3>
+<p>Para probar la aplicación en local debe: </p>
+<ul>
+<li>Crear un entorno virtual Python </li>
+<li>Activar ese entorno virtual, </li>
+<li>Instalar las dependencias</li>
+<li>Iniciar la aplicación desde el interprete Python.</li>
+</ul>
+<p>Estos son los comandos necesarios:</p>
+<div class="highlight"><pre><span></span><code>$ python3 -m venv venv
+$ source venv/bin/activate
+(venv) $ pip install -r requirements.txt 
+(venv) $ python src/app.py 
+</code></pre></div>
+<p>Puede verificar que la aplicación está funcionando con <code>curl</code> o accediendo con el navegador:</p>
+<div class="highlight"><pre><span></span><code>$ curl http://localhost:5000
+$ curl http://localhost:5000/status
+$ firefox http://localhost:5000 &amp;
+</code></pre></div>
+<p>En producción es preferible iniciar la aplicación con un servidor como <code>gunicorn</code>. El comando en ese caso sería:</p>
+<div class="highlight"><pre><span></span><code>$ gunicorn --chdir src app:app --bind 0.0.0.0:5000 
+</code></pre></div>
+<h3 id="22-creacion-imagen-docker">2.2. Creación imagen Docker<a class="headerlink" href="#22-creacion-imagen-docker" title="Permanent link">&para;</a></h3>
+<p>Se le facilita un fichero <code>Dockerfile</code> para "dockerizar" la aplicación:</p>
+<div class="highlight"><pre><span></span><code><span class="c"># start by pulling the python image</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">python:3-slim</span>
+<span class="c"># switch working directory</span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+<span class="c"># copy the requirements file into the image</span>
+<span class="k">COPY</span><span class="w"> </span>./requirements.txt<span class="w"> </span>./
+<span class="c"># install the dependencies and packages in the requirements file</span>
+<span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+<span class="c"># copy every content from the local file to the image</span>
+<span class="k">COPY</span><span class="w"> </span>src<span class="w"> </span>.
+<span class="c"># configure the container to run in an executed manner</span>
+<span class="k">CMD</span><span class="w"> </span>gunicorn<span class="w"> </span>--bind<span class="w"> </span><span class="m">0</span>.0.0.0:5000<span class="w"> </span>app:app
+</code></pre></div>
+<p>Desde el directorio donde esté el fichero construya la imagen (usando su nombre de usuario en DockerHub para etiquetar la imagen):</p>
+<p><div class="highlight"><pre><span></span><code>(venv) $ ls
+Dockerfile  README.md  requirements.txt src venv 
+(venv) $ docker build -t &lt;usuariodockerhub&gt;/galeria:latest .
+</code></pre></div>
+Y  ahora puede lanzar la imagen creada para probarla:</p>
+<div class="highlight"><pre><span></span><code>(venv) $ docker run -d -p 80:5000  --name testgaleria &lt;usuariodockerhub&gt;/galeria
+(venv) $ curl http://localhost/status
+(venv) $ firefox http://localhost:80 &amp;
+</code></pre></div>
+<p>Termine parando y borrando el contenedor:
+<div class="highlight"><pre><span></span><code>(venv) $ docker stop testgaleria &amp;&amp; docker rm testgaleria
+</code></pre></div></p>
+<h3 id="23-prueba-imagen-en-local-con-composeyml">2.3. Prueba imagen en local con compose.yml<a class="headerlink" href="#23-prueba-imagen-en-local-con-composeyml" title="Permanent link">&para;</a></h3>
+<p>En este apartado se crea un  fichero  <code>docker-compose.yml</code> para lanzar el servicio(indicando su usuario en DockerHub):</p>
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">galeria</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">galeria</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;usuariodockerhub&gt;/galeria:latest</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80:5000</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
+</code></pre></div>
+<p>Y pruebe con <code>docker compose</code> iniciar y detener la aplicación:</p>
+<div class="highlight"><pre><span></span><code>(venv) $ docker compose  up -d 
+(venv) $ curl http://localhost
+(venv) $ firefox http://localhost:80 &amp;
+(venv) $ docker compose  down
+</code></pre></div>
+<h3 id="24-subir-imagen-a-dockerhub">2.4. Subir imagen a dockerhub<a class="headerlink" href="#24-subir-imagen-a-dockerhub" title="Permanent link">&para;</a></h3>
+<p>Puede subir la imagen a DockerHub:</p>
+<div class="highlight"><pre><span></span><code>(venv) $ docker push  &lt;usuariodockerhub&gt;/galeria:latest
+</code></pre></div>
+<h2 id="3-actions-build-and-push">3. Actions: build and push<a class="headerlink" href="#3-actions-build-and-push" title="Permanent link">&para;</a></h2>
+<p>Vamos a crear un action que ejecute en GitHub de forma automática los pasos anteriores: construir la imagen y subirla a DockerHub.</p>
+<h3 id="31-secretos-en-github">3.1. Secretos en GitHub<a class="headerlink" href="#31-secretos-en-github" title="Permanent link">&para;</a></h3>
+<p>Para este Action se necesita añadir en GitHub los llmados <strong><code>Secrets</code></strong>, que permiten almacenar de forma segura en GitHub el usuario y clave necesarios para hacer push a DockerHub.</p>
+<blockquote>
+<p><strong>Actions secrets and variables</strong></p>
+<p>Secrets and variables allow you to manage reusable configuration data. Secrets are encrypted and are used for sensitive data. Learn more about encrypted secrets. Variables are shown as plain text and are used for non-sensitive data. Learn more about variables.</p>
+<p>Anyone with collaborator access to this repository can use these secrets and variables for actions. They are not passed to workflows that are triggered by a pull request from a fork. 
+</p>
+</blockquote>
+<p>Para más información: <a href="https://docs.github.com/es/actions/security-guides/using-secrets-in-github-actions">Uso de secretos en Acciones de GitHub</a></p>
+<p>El nombre que utilice al crear el secreto en al consola de adminstración de GitHub será el que debe utilizar en el Action. </p>
+<p>En este ejemplo se usarán dos secretos:</p>
+<ul>
+<li><code>DOCKERHUB_USERNAME</code>: su usuario en DockerHub</li>
+<li><code>DOCKERHUB_TOKEN</code>: un token de acceso que debe generar en DockerHub</li>
+</ul>
+<p>Para obtener el <em>token</em> de acceso en DockerHub  acceda a su web (<em>Account Settings/Security</em>):
+<img alt="" src="../figuras/dockerhub_token_01.png" />
+<img alt="" src="../figuras/dockerhub_token_02.png" /></p>
+<p>No olvide <strong>copiar y guardar el token generado</strong> ya que lo va a necesitar para introducirlo en el secreto de GitHub.</p>
+<p>La ruta para crear un secreto en GitHub es <em>Settings del repositorio / Security / Secrets and Variabls / Actions</em>. </p>
+<p><img alt="" src="../figuras/github_secret_01.png" /></p>
+<p>Ahora ya puede generar los dos secretos en GitHub. Tras añadirlos debe aparecer algo similar a:</p>
+<p><img alt="" src="../figuras/github_secret_02.png" /></p>
+<h3 id="32-creando-el-action">3.2. Creando el Action<a class="headerlink" href="#32-creando-el-action" title="Permanent link">&para;</a></h3>
+<p>En este ejemplo  de Action se utilzian otras Actions predefinidas:</p>
+<ol>
+<li><code>actions/checkout</code>: Descarga el código. En términos técnicos, hace un "git checkout" delepositorio y lo coloca dentro del "runner" donde se está ejecutando la acción.</li>
+<li><code>docker/login-action</code>: Esta acción maneja la autenticación con un registro de contenedores. Inicia sesión en un registro de Docker (como Docker Hub, GitHub Container Registry, AWS ECR, etc.). Es el equivalente a escribir docker login en terminal. Si vas a subir (push) una imagen, necesitas estar autenticado.</li>
+<li><code>docker/build-push-action</code>: construir y subir la imagen. Utiliza Docker Buildx (una versión avanzada del constructor de Docker) para crear la imagen a partir del Dockerfile y opcionalmente subirla al registro del paso anterior.</li>
+</ol>
+<p>Para acceder a la información almacenada en un secreto se usa la notación <code>${{ secrets.NOMBRE_DEL_SECRETO }}</code>. </p>
+<p>El fichero con el action debe ser similar a este. Puede observar que el <em>Action</em> se dispara con cambios en el directorio <code>src</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Docker CI/CD</span>
+
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">main</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">paths</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">src/**</span>
+<span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">main</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">paths</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">src/**</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">build</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build and push Docker image</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w"> </span>
+<span class="w">      </span><span class="c1"># 1 </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<span class="w">      </span><span class="c1"># 2  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Login to DockerHub</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker/login-action@v3</span><span class="w"> </span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.DOCKERHUB_USERNAME }}</span>
+<span class="w">          </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.DOCKERHUB_TOKEN }}</span>
+<span class="w">      </span><span class="c1"># 3   </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build and push Docker image</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker/build-push-action@v5</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+<span class="w">          </span><span class="nt">push</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"> </span>
+<span class="w">          </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.DOCKERHUB_USERNAME }}/galeria:latest</span>
+</code></pre></div>
+<p>Sólo queda probar el fichero. Para ello:</p>
+<ul>
+<li>crear el Action en GitHub.</li>
+<li>crear una rama en local</li>
+<li>modificar algún fichero en el directorio <code>src</code>, por ejemplo el fichero <code>index.html</code> para incluir su nombre y apellidos en el <code>title</code> de la página.</li>
+<li>hacer un push de esa rama (y usar Pull Request si están activados).</li>
+<li>Comprobar en la pestaña Actions de GitHub los distintos pasos del Action.</li>
+<li>Comprobar que no hay errores y que se ha subido la imagen creada a DockerHub.</li>
+</ul>
+<h2 id="4-action-para-aws">4. Action para AWS<a class="headerlink" href="#4-action-para-aws" title="Permanent link">&para;</a></h2>
+<p>Se puede añadir un nuevo <strong>job</strong> al action anterior para provocar el despliegue de la nueva imagen en AWS. </p>
+<p>Para ello será necesario, tras crear la nueva imagen, hacer <code>docker compose down</code> y posteriromente  <code>docker compose up</code> en la instancia de EC2.</p>
+<p>Para ello:</p>
+<ul>
+<li>Se supone iniciada una instancia EC2.</li>
+<li>En la instancia EC2 está instalado <code>docker</code>.</li>
+<li>Tiene creados los siguiente secretos en GitHub</li>
+<li><code>AWS_USERNAME</code>: username en EC2</li>
+<li><code>AWS_HOSTNAME</code>: nombre o IP pública de EC2</li>
+<li><code>AWS_PRIVATEKEY</code>:  clave de acceso SSH a EC2 (<code>vockey.pem</code>)</li>
+</ul>
+<p>Tras la creación de los secretos modificamos el Action anterior añadiendo el job <code>aws</code>:</p>
+<ul>
+<li>Observe en <code>aws</code> el valor  <code>needs: build</code> para indicar que si el trabajo <code>build</code> no es correcto no se ejecuta <code>aws</code>.</li>
+<li>
+<p>Se añade el uso de dos Actions:</p>
+</li>
+<li>
+<p><code>appleboy/scp-action</code> para hacer <code>scp</code> del fichero <code>docker.compos.yml</code> del repositorio a EC2.</p>
+</li>
+<li><code>appleboy/ssh-action</code> para hacer ssh a EC2 y ejecutar los comandos  <code>docker compose</code> necesarios (se añade una pausa para permitir que DockerHub indexe correctamente la imagen subida).</li>
+</ul>
+<p>Para probar añadir al fichero inicial este fragmento:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ... Cortado</span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">build</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># ... Cortado</span>
+
+<span class="w">  </span><span class="nt">aws</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy image to aws</span>
+<span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">copy docker compose via ssh key</span>
+<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">appleboy/scp-action@v0.1.7</span>
+<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.AWS_HOSTNAME }}</span>
+<span class="w">        </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.AWS_USERNAME }}</span>
+<span class="w">        </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">22</span><span class="w"> </span><span class="c1"># ${{ secrets.PORT }}</span>
+<span class="w">        </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.AWS_PRIVATEKEY }}</span>
+<span class="w">        </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;docker-compose.yml&quot;</span>
+<span class="w">        </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/home/admin</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">script deploy docker services</span>
+<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">appleboy/ssh-action@v1.0.3</span>
+<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.AWS_HOSTNAME }}</span>
+<span class="w">        </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.AWS_USER_NAME }}</span>
+<span class="w">        </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.AWS_PRIVATE_KEY }}</span>
+<span class="w">        </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">22</span><span class="w">  </span><span class="c1"># ${{ secrets.PORT }}</span>
+<span class="w">        </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">            </span><span class="no">sleep 60</span>
+<span class="w">            </span><span class="no">docker compose down --rmi all</span>
+<span class="w">            </span><span class="no">docker compose up -d</span>
+</code></pre></div>
+<h3 id="41-prueba">4.1. Prueba<a class="headerlink" href="#41-prueba" title="Permanent link">&para;</a></h3>
+<p>Basta con volver a modificar código en el directorio <code>src</code>. Esto dispara la creación de la imagen y si es correcta dispara el trabajo de despliegue en AWS EC2.</p>
+<h2 id="5-anexo-orden-de-ejecucion-en-los-actions">5. Anexo: Orden de ejecución en los Actions<a class="headerlink" href="#5-anexo-orden-de-ejecucion-en-los-actions" title="Permanent link">&para;</a></h2>
+<p>Tenga en cuenta que:</p>
+<ul>
+<li>Dentro de un <code>job</code> los <code>steps</code> se ejecutan de forma secuencial.</li>
+<li>Los <code>jobs</code> dentro de un <code>workflow</code> se ejecutan en paralelo.</li>
+<li>Los flujos dentro de un repositorio también se ejecutan en paralelo.</li>
+</ul>
+<p>Si desea ejecutar proceso en secuencia tenemos dos opciones:</p>
+<ul>
+<li>Action con varios jobs "ecadenados"</li>
+<li>Varios Actions encadenados entre si.</li>
+</ul>
+<h3 id="51-action-con-varios-jobs">5.1. Action con varios jobs<a class="headerlink" href="#51-action-con-varios-jobs" title="Permanent link">&para;</a></h3>
+<p>Si desea que un <code>job</code> se ejecuta tras otro debe usar la clave <code>needs: &lt;nombre_job&gt;</code> para indicar que  el trabajo no se lanza hasta que <code>nombre_job</code> haya terminado correctamente.</p>
+<p>Vea un ejemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">lint</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Lint con Flake 8</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="c1">### pasos de lint</span>
+
+<span class="w">  </span><span class="nt">build</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Docker build and push</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lint</span><span class="w">   </span><span class="c1">## depende del job lint</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="c1">### pasos del docker build and push</span>
+
+<span class="w">  </span><span class="nt">aws</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy image to aws</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="c1">###  apsos del deploy</span>
+</code></pre></div>
+<h3 id="52-varios-actions">5.2. Varios Actions<a class="headerlink" href="#52-varios-actions" title="Permanent link">&para;</a></h3>
+<p>Si tiene varios ficheros con workflows y desea ejecutarlos en un orden específico puedes utilizar la clave  <code>workflow_run</code>. Esta permite desencadenar un flujo de trabajo basado en el éxito o fracaso de otro. </p>
+<p>Si por ejemplo tiene tres ficheros <code>lint.yml</code>, <code>test.yml</code>y <code>deploy.yml</code> y los quiere ejecutar en ese orden los ficheros serían similares a:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Archivo lint.yml, NO SE AÑADE NADA</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Lint</span><span class="w">   </span><span class="c1"># Nombre del flujo, se usa en test.yml</span>
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">lint</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Lint the code</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;Running lint checks&quot;</span>
+</code></pre></div>
+<p>En el fichero <code>test.yml</code> añadimos la dependencia del flujo de nombre <code>Lint</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># En el archivo test.yml</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Test</span><span class="w"> </span><span class="c1"># Nombre del flujo, se usa en deploy.yml</span>
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">workflow_run</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">workflows</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Lint</span><span class="w">         </span><span class="c1"># Flujo del que depende</span>
+<span class="w">    </span><span class="nt">types</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">completed</span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">test</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run tests</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;Running tests&quot;</span>
+</code></pre></div>
+<p>Y en el fichero <code>deploy.yml</code> añadimos la dependencia del flujo de nombre <code>Test</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># En el archivo deploy.yml</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy</span>
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">workflow_run</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">workflows</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Test</span><span class="w">         </span><span class="c1"># Flujo del que depende</span>
+<span class="w">    </span><span class="nt">types</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">completed</span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">deploy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;Deploying&quot;</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
