@@ -357,12 +357,27 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="3.1. Secretos en GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-crear-el-secreto" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.1. Crear el secreto
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
-  <a href="#32-creando-el-action" class="md-nav__link">
+  <a href="#32-crear-el-action" class="md-nav__link">
     <span class="md-ellipsis">
-      3.2. Creando el Action
+      3.2. Crear el Action
     </span>
   </a>
   
@@ -374,19 +389,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-action-para-aws" class="md-nav__link">
+  <a href="#4-action-despliegue-en-aws" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Action para AWS
+      4. Action: despliegue en AWS
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="4. Action para AWS">
+    <nav class="md-nav" aria-label="4. Action: despliegue en AWS">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#41-prueba" class="md-nav__link">
+  <a href="#41-secretos-necesarios" class="md-nav__link">
     <span class="md-ellipsis">
-      4.1. Prueba
+      4.1. Secretos necesarios
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-modificar-el-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2. Modificar el action
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-prueba" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3. Prueba
     </span>
   </a>
   
@@ -670,12 +703,27 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="3.1. Secretos en GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-crear-el-secreto" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.1. Crear el secreto
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
-  <a href="#32-creando-el-action" class="md-nav__link">
+  <a href="#32-crear-el-action" class="md-nav__link">
     <span class="md-ellipsis">
-      3.2. Creando el Action
+      3.2. Crear el Action
     </span>
   </a>
   
@@ -687,19 +735,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-action-para-aws" class="md-nav__link">
+  <a href="#4-action-despliegue-en-aws" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Action para AWS
+      4. Action: despliegue en AWS
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="4. Action para AWS">
+    <nav class="md-nav" aria-label="4. Action: despliegue en AWS">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#41-prueba" class="md-nav__link">
+  <a href="#41-secretos-necesarios" class="md-nav__link">
     <span class="md-ellipsis">
-      4.1. Prueba
+      4.1. Secretos necesarios
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-modificar-el-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2. Modificar el action
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-prueba" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3. Prueba
     </span>
   </a>
   
@@ -776,12 +842,12 @@ $ sudo systemctl restart networking.service
 </blockquote>
 <h3 id="21-prueba-en-local">2.1. Prueba en local<a class="headerlink" href="#21-prueba-en-local" title="Permanent link">&para;</a></h3>
 <p>Para probar la aplicación en local debe: </p>
-<ul>
+<ol>
 <li>Crear un entorno virtual Python </li>
 <li>Activar ese entorno virtual, </li>
 <li>Instalar las dependencias</li>
 <li>Iniciar la aplicación desde el interprete Python.</li>
-</ul>
+</ol>
 <p>Estos son los comandos necesarios:</p>
 <div class="highlight"><pre><span></span><code>$ python3 -m venv venv
 $ source venv/bin/activate
@@ -812,20 +878,20 @@ $ firefox http://localhost:5000 &amp;
 <span class="k">CMD</span><span class="w"> </span>gunicorn<span class="w"> </span>--bind<span class="w"> </span><span class="m">0</span>.0.0.0:5000<span class="w"> </span>app:app
 </code></pre></div>
 <p>Desde el directorio donde esté el fichero construya la imagen (usando su nombre de usuario en DockerHub para etiquetar la imagen):</p>
-<p><div class="highlight"><pre><span></span><code>(venv) $ ls
+<div class="highlight"><pre><span></span><code>(venv) $ ls
 Dockerfile  README.md  requirements.txt src venv 
 (venv) $ docker build -t &lt;usuariodockerhub&gt;/galeria:latest .
 </code></pre></div>
-Y  ahora puede lanzar la imagen creada para probarla:</p>
+<p>Y  ahora puede lanzar la imagen creada para probarla:</p>
 <div class="highlight"><pre><span></span><code>(venv) $ docker run -d -p 80:5000  --name testgaleria &lt;usuariodockerhub&gt;/galeria
 (venv) $ curl http://localhost/status
 (venv) $ firefox http://localhost:80 &amp;
 </code></pre></div>
-<p>Termine parando y borrando el contenedor:
+<p>Termine parando y borrando el contenedor:</p>
 <div class="highlight"><pre><span></span><code>(venv) $ docker stop testgaleria &amp;&amp; docker rm testgaleria
-</code></pre></div></p>
+</code></pre></div>
 <h3 id="23-prueba-imagen-en-local-con-composeyml">2.3. Prueba imagen en local con compose.yml<a class="headerlink" href="#23-prueba-imagen-en-local-con-composeyml" title="Permanent link">&para;</a></h3>
-<p>En este apartado se crea un  fichero  <code>docker-compose.yml</code> para lanzar el servicio(indicando su usuario en DockerHub):</p>
+<p>En este apartado se proporciona un  fichero  <code>docker-compose.yml</code> para lanzar el servicio (modificando el fichero para indicar su usuario en DockerHub):</p>
 <div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">galeria</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">galeria</span>
@@ -834,20 +900,20 @@ Y  ahora puede lanzar la imagen creada para probarla:</p>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80:5000</span>
 <span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
 </code></pre></div>
-<p>Y pruebe con <code>docker compose</code> iniciar y detener la aplicación:</p>
+<p>Pruebe con <code>docker compose</code> a iniciar y detener la aplicación:</p>
 <div class="highlight"><pre><span></span><code>(venv) $ docker compose  up -d 
 (venv) $ curl http://localhost
 (venv) $ firefox http://localhost:80 &amp;
 (venv) $ docker compose  down
 </code></pre></div>
 <h3 id="24-subir-imagen-a-dockerhub">2.4. Subir imagen a dockerhub<a class="headerlink" href="#24-subir-imagen-a-dockerhub" title="Permanent link">&para;</a></h3>
-<p>Puede subir la imagen a DockerHub:</p>
+<p>Suba la imagen a DockerHub para comprobar su usuario, permisos, etc:</p>
 <div class="highlight"><pre><span></span><code>(venv) $ docker push  &lt;usuariodockerhub&gt;/galeria:latest
 </code></pre></div>
 <h2 id="3-actions-build-and-push">3. Actions: build and push<a class="headerlink" href="#3-actions-build-and-push" title="Permanent link">&para;</a></h2>
 <p>Vamos a crear un action que ejecute en GitHub de forma automática los pasos anteriores: construir la imagen y subirla a DockerHub.</p>
 <h3 id="31-secretos-en-github">3.1. Secretos en GitHub<a class="headerlink" href="#31-secretos-en-github" title="Permanent link">&para;</a></h3>
-<p>Para este Action se necesita añadir en GitHub los llmados <strong><code>Secrets</code></strong>, que permiten almacenar de forma segura en GitHub el usuario y clave necesarios para hacer push a DockerHub.</p>
+<p>Para este Action se necesita añadir en GitHub los llamados <strong><code>Secrets</code></strong>, que permiten almacenar de forma segura en GitHub el usuario y clave para hacer push a DockerHub.</p>
 <blockquote>
 <p><strong>Actions secrets and variables</strong></p>
 <p>Secrets and variables allow you to manage reusable configuration data. Secrets are encrypted and are used for sensitive data. Learn more about encrypted secrets. Variables are shown as plain text and are used for non-sensitive data. Learn more about variables.</p>
@@ -855,8 +921,8 @@ Y  ahora puede lanzar la imagen creada para probarla:</p>
 </p>
 </blockquote>
 <p>Para más información: <a href="https://docs.github.com/es/actions/security-guides/using-secrets-in-github-actions">Uso de secretos en Acciones de GitHub</a></p>
-<p>El nombre que utilice al crear el secreto en al consola de adminstración de GitHub será el que debe utilizar en el Action. </p>
-<p>En este ejemplo se usarán dos secretos:</p>
+<p>El nombre que utilice al crear el secreto en la consola de administración de GitHub será el que debe utilizar en el Action. </p>
+<p>En este ejemplo se usan dos secretos:</p>
 <ul>
 <li><code>DOCKERHUB_USERNAME</code>: su usuario en DockerHub</li>
 <li><code>DOCKERHUB_TOKEN</code>: un token de acceso que debe generar en DockerHub</li>
@@ -865,16 +931,17 @@ Y  ahora puede lanzar la imagen creada para probarla:</p>
 <img alt="" src="../figuras/dockerhub_token_01.png" />
 <img alt="" src="../figuras/dockerhub_token_02.png" /></p>
 <p>No olvide <strong>copiar y guardar el token generado</strong> ya que lo va a necesitar para introducirlo en el secreto de GitHub.</p>
+<h4 id="311-crear-el-secreto">3.1.1. Crear el secreto<a class="headerlink" href="#311-crear-el-secreto" title="Permanent link">&para;</a></h4>
 <p>La ruta para crear un secreto en GitHub es <em>Settings del repositorio / Security / Secrets and Variabls / Actions</em>. </p>
 <p><img alt="" src="../figuras/github_secret_01.png" /></p>
 <p>Ahora ya puede generar los dos secretos en GitHub. Tras añadirlos debe aparecer algo similar a:</p>
 <p><img alt="" src="../figuras/github_secret_02.png" /></p>
-<h3 id="32-creando-el-action">3.2. Creando el Action<a class="headerlink" href="#32-creando-el-action" title="Permanent link">&para;</a></h3>
-<p>En este ejemplo  de Action se utilzian otras Actions predefinidas:</p>
+<h3 id="32-crear-el-action">3.2. Crear el Action<a class="headerlink" href="#32-crear-el-action" title="Permanent link">&para;</a></h3>
+<p>En este ejemplo el Action que se muestra utiliza otras Actions predefinidas:</p>
 <ol>
-<li><code>actions/checkout</code>: Descarga el código. En términos técnicos, hace un "git checkout" delepositorio y lo coloca dentro del "runner" donde se está ejecutando la acción.</li>
-<li><code>docker/login-action</code>: Esta acción maneja la autenticación con un registro de contenedores. Inicia sesión en un registro de Docker (como Docker Hub, GitHub Container Registry, AWS ECR, etc.). Es el equivalente a escribir docker login en terminal. Si vas a subir (push) una imagen, necesitas estar autenticado.</li>
-<li><code>docker/build-push-action</code>: construir y subir la imagen. Utiliza Docker Buildx (una versión avanzada del constructor de Docker) para crear la imagen a partir del Dockerfile y opcionalmente subirla al registro del paso anterior.</li>
+<li><code>actions/checkout</code>: Descarga el código. En términos técnicos, hace un "git checkout" del repositorio y lo coloca dentro del "runner" donde se está ejecutando la acción.</li>
+<li><code>docker/login-action</code>: Inicia sesión en un registro de Docker.Es el equivalente a escribir docker login en terminal.</li>
+<li><code>docker/build-push-action</code>: crea la imagen a partir del Dockerfile y opcionalmente la sube al registro del paso anterior.</li>
 </ol>
 <p>Para acceder a la información almacenada en un secreto se usa la notación <code>${{ secrets.NOMBRE_DEL_SECRETO }}</code>. </p>
 <p>El fichero con el action debe ser similar a este. Puede observar que el <em>Action</em> se dispara con cambios en el directorio <code>src</code>.</p>
@@ -912,36 +979,35 @@ Y  ahora puede lanzar la imagen creada para probarla:</p>
 <span class="w">          </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.DOCKERHUB_USERNAME }}/galeria:latest</span>
 </code></pre></div>
 <p>Sólo queda probar el fichero. Para ello:</p>
-<ul>
+<ol>
 <li>crear el Action en GitHub.</li>
 <li>crear una rama en local</li>
 <li>modificar algún fichero en el directorio <code>src</code>, por ejemplo el fichero <code>index.html</code> para incluir su nombre y apellidos en el <code>title</code> de la página.</li>
 <li>hacer un push de esa rama (y usar Pull Request si están activados).</li>
 <li>Comprobar en la pestaña Actions de GitHub los distintos pasos del Action.</li>
 <li>Comprobar que no hay errores y que se ha subido la imagen creada a DockerHub.</li>
-</ul>
-<h2 id="4-action-para-aws">4. Action para AWS<a class="headerlink" href="#4-action-para-aws" title="Permanent link">&para;</a></h2>
-<p>Se puede añadir un nuevo <strong>job</strong> al action anterior para provocar el despliegue de la nueva imagen en AWS. </p>
-<p>Para ello será necesario, tras crear la nueva imagen, hacer <code>docker compose down</code> y posteriromente  <code>docker compose up</code> en la instancia de EC2.</p>
-<p>Para ello:</p>
+</ol>
+<h2 id="4-action-despliegue-en-aws">4. Action: despliegue en AWS<a class="headerlink" href="#4-action-despliegue-en-aws" title="Permanent link">&para;</a></h2>
+<p>Se puede añadir un nuevo <strong>job</strong> al action anterior para provocar el despliegue de la nueva imagen en AWS. Para ello será necesario, tras crear la nueva imagen, acceder a la instancia EC2 en AWS y hacer <code>docker compose down</code> y posteriromente  <code>docker compose up</code>.</p>
+<h3 id="41-secretos-necesarios">4.1. Secretos necesarios<a class="headerlink" href="#41-secretos-necesarios" title="Permanent link">&para;</a></h3>
+<p>Para ello necesita:</p>
 <ul>
-<li>Se supone iniciada una instancia EC2.</li>
-<li>En la instancia EC2 está instalado <code>docker</code>.</li>
-<li>Tiene creados los siguiente secretos en GitHub</li>
-<li><code>AWS_USERNAME</code>: username en EC2</li>
-<li><code>AWS_HOSTNAME</code>: nombre o IP pública de EC2</li>
-<li><code>AWS_PRIVATEKEY</code>:  clave de acceso SSH a EC2 (<code>vockey.pem</code>)</li>
+<li>Una instancia EC2 activa.</li>
+<li>En la instancia EC2 debe estar instalado <code>docker</code>.</li>
+<li>Crear los siguiente secretos en GitHub</li>
+<li><code>AWS_USERNAME</code>: username del adminstrador en la instacia EC2</li>
+<li><code>AWS_HOSTNAME</code>: nombre o la IP pública de la instacia EC2</li>
+<li><code>AWS_PRIVATEKEY</code>:  el fichero de clave de acceso SSH a EC2 (el contenido del fichero <code>vockey.pem</code>)</li>
 </ul>
-<p>Tras la creación de los secretos modificamos el Action anterior añadiendo el job <code>aws</code>:</p>
+<h3 id="42-modificar-el-action">4.2. Modificar el action<a class="headerlink" href="#42-modificar-el-action" title="Permanent link">&para;</a></h3>
+<p>Tras la creación de los secretos hay que modificar el Action anterior añadiendo el nuevo job <code>aws</code>. Tenga en cuenta:</p>
 <ul>
 <li>Observe en <code>aws</code> el valor  <code>needs: build</code> para indicar que si el trabajo <code>build</code> no es correcto no se ejecuta <code>aws</code>.</li>
-<li>
-<p>Se añade el uso de dos Actions:</p>
+<li>Se añade el uso de dos Actions prededinidos:<ol>
+<li><code>appleboy/scp-action</code> para hacer <code>scp</code> del fichero <code>docker-compose.yml</code> del repositorio a EC2. Se utiliza por si hubiera cambios en el fichero de despliegue.</li>
+<li><code>appleboy/ssh-action</code> para hacer <code>ssh</code> a EC2 y ejecutar los comandos  <code>docker compose</code> necesarios (se añade una pausa para permitir que DockerHub indexe correctamente la imagen subida).</li>
+</ol>
 </li>
-<li>
-<p><code>appleboy/scp-action</code> para hacer <code>scp</code> del fichero <code>docker.compos.yml</code> del repositorio a EC2.</p>
-</li>
-<li><code>appleboy/ssh-action</code> para hacer ssh a EC2 y ejecutar los comandos  <code>docker compose</code> necesarios (se añade una pausa para permitir que DockerHub indexe correctamente la imagen subida).</li>
 </ul>
 <p>Para probar añadir al fichero inicial este fragmento:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># ... Cortado</span>
@@ -949,13 +1015,15 @@ Y  ahora puede lanzar la imagen creada para probarla:</p>
 <span class="w">  </span><span class="nt">build</span><span class="p">:</span>
 <span class="w">    </span><span class="c1"># ... Cortado</span>
 
+<span class="w">  </span><span class="c1"># código añadido</span>
 <span class="w">  </span><span class="nt">aws</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy image to aws</span>
 <span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build</span>
 <span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
 <span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">copy docker compose via ssh key</span>
+<span class="w">    </span><span class="c1"># 1</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">copy docker compose via ssh key</span><span class="w">  </span>
 <span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">appleboy/scp-action@v0.1.7</span>
 <span class="w">      </span><span class="nt">with</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.AWS_HOSTNAME }}</span>
@@ -964,20 +1032,21 @@ Y  ahora puede lanzar la imagen creada para probarla:</p>
 <span class="w">        </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.AWS_PRIVATEKEY }}</span>
 <span class="w">        </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;docker-compose.yml&quot;</span>
 <span class="w">        </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/home/admin</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">script deploy docker services</span>
+<span class="w">    </span><span class="c1"># 2</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">script deploy docker services</span><span class="w"> </span>
 <span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">appleboy/ssh-action@v1.0.3</span>
 <span class="w">      </span><span class="nt">with</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.AWS_HOSTNAME }}</span>
-<span class="w">        </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.AWS_USER_NAME }}</span>
-<span class="w">        </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.AWS_PRIVATE_KEY }}</span>
+<span class="w">        </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.AWS_USERNAME }}</span>
+<span class="w">        </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.AWS_PRIVATEKEY }}</span>
 <span class="w">        </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">22</span><span class="w">  </span><span class="c1"># ${{ secrets.PORT }}</span>
 <span class="w">        </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <span class="w">            </span><span class="no">sleep 60</span>
 <span class="w">            </span><span class="no">docker compose down --rmi all</span>
 <span class="w">            </span><span class="no">docker compose up -d</span>
 </code></pre></div>
-<h3 id="41-prueba">4.1. Prueba<a class="headerlink" href="#41-prueba" title="Permanent link">&para;</a></h3>
-<p>Basta con volver a modificar código en el directorio <code>src</code>. Esto dispara la creación de la imagen y si es correcta dispara el trabajo de despliegue en AWS EC2.</p>
+<h3 id="43-prueba">4.3. Prueba<a class="headerlink" href="#43-prueba" title="Permanent link">&para;</a></h3>
+<p>Basta con volver a modificar el código en el directorio <code>src</code>. Esto dispara la creación de la imagen y si es correcta dispara el trabajo de despliegue en AWS EC2.</p>
 <h2 id="5-anexo-orden-de-ejecucion-en-los-actions">5. Anexo: Orden de ejecución en los Actions<a class="headerlink" href="#5-anexo-orden-de-ejecucion-en-los-actions" title="Permanent link">&para;</a></h2>
 <p>Tenga en cuenta que:</p>
 <ul>
