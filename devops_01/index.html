@@ -871,7 +871,7 @@ clases@vm:~/23-demo-pr$
 <span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
 <span class="w">    </span><span class="nt">strategy</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">matrix</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;3.10&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;3.13&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">        </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;3.10&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;3.12&quot;</span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
 <span class="w">    </span><span class="c1"># Paso 1: Checkout del repositorio</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout Code</span>
@@ -898,10 +898,10 @@ clases@vm:~/23-demo-pr$
 <li>Definición de los trabajos (<code>jobs</code>):</li>
 <li>Trabajo: <strong><code>build</code></strong>:<ul>
 <li>Entorno de Ejecución: Se ejecuta en un sistema operativo <code>ubuntu-latest</code>.</li>
-<li>Estrategia de Matriz: El Action se ejecuta con dos versiones de Python (<code>3.9</code> y <code>3.10</code>), probando cada una de manera independiente.</li>
+<li>Estrategia de Matriz: El Action se ejecuta con dos versiones de Python (<code>3.10</code> y <code>3.12</code>), probando cada una de manera independiente.</li>
 <li>Pasos del Workflow:</li>
 <li>Checkout del Código: Utiliza la acción oficial <code>actions/checkout@v3</code> para clonar el repositorio y obtener el código fuente.</li>
-<li>Configuración de Python: Usa la acción oficial<code>actions/setup-python@v3</code> para establecer el entorno Python correspondiente a la versión definida en la matriz (<code>3.9</code> o <code>3.10</code>).</li>
+<li>Configuración de Python: Usa la acción oficial<code>actions/setup-python@v3</code> para establecer el entorno Python correspondiente a la versión definida en la matriz (<code>3.10</code> o <code>3.12</code>).</li>
 <li>Instalación de dependencias: Actualiza <code>pip</code> y  luego instala <code>pylint</code>, que es la herramienta de análisis de código.</li>
 <li>Análisis del Código: Este comando encuentra todos los archivos .py rastreados por Git en el repositorio y los analiza con pylint. Los resultados del análisis se muestran en la salida del Action.</li>
 </ul>
