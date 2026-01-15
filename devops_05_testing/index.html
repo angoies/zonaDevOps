@@ -400,13 +400,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-pytest" class="md-nav__link">
+  <a href="#3-anexo-pytest" class="md-nav__link">
     <span class="md-ellipsis">
-      3. pytest
+      3. Anexo: pytest
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="3. pytest">
+    <nav class="md-nav" aria-label="3. Anexo: pytest">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -542,13 +542,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-pytest" class="md-nav__link">
+  <a href="#3-anexo-pytest" class="md-nav__link">
     <span class="md-ellipsis">
-      3. pytest
+      3. Anexo: pytest
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="3. pytest">
+    <nav class="md-nav" aria-label="3. Anexo: pytest">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -619,8 +619,8 @@
 
 <h1 id="introduccion-a-testing">Introducción a testing<a class="headerlink" href="#introduccion-a-testing" title="Permanent link">&para;</a></h1>
 <h2 id="1-pruebas-para-una-api">1. Pruebas para una API<a class="headerlink" href="#1-pruebas-para-una-api" title="Permanent link">&para;</a></h2>
-<p>Si desea probar una API puede usar el módulo <strong><code>httpx</code></strong>.</p>
-<p><strong>Ejemplo: Probar una API</strong></p>
+<p>Si desea probar una API puede usar el módulo <strong><code>httpx</code></strong> junto con <code>pytest</code>. </p>
+<p>El fichero a continuación es un ejemplo de cómo hacer una prueba básica de la API:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
 
 <span class="n">BASE_URL</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8000&quot;</span>
@@ -640,8 +640,8 @@
     <span class="k">assert</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;John Doe&quot;</span>
 </code></pre></div>
 <h2 id="2-integracion-con-github-actions">2. Integración con GitHub Actions<a class="headerlink" href="#2-integracion-con-github-actions" title="Permanent link">&para;</a></h2>
-<p>Puede hacer que las pruebas se ejecuten automáticamente en cada <code>push</code> con <strong>GitHub Actions</strong>.</p>
-<p>Cree un archivo en <code>.github/workflows/test.yml</code>:</p>
+<p>Puede hacer que la prueba anterior se ejecute automáticamente en cada <code>push</code> con <strong>GitHub Actions</strong>.</p>
+<p>Cree el archivo <code>.github/workflows/test.yml</code> (o añada el job <code>test</code> a un Action existente)</p>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Test API</span>
 
 <span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">push</span><span class="p p-Indicator">]</span>
@@ -661,7 +661,7 @@
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ejecutar pruebas</span>
 <span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest tests/</span>
 </code></pre></div>
-<h2 id="3-pytest">3. <code>pytest</code><a class="headerlink" href="#3-pytest" title="Permanent link">&para;</a></h2>
+<h2 id="3-anexo-pytest">3. Anexo: <code>pytest</code><a class="headerlink" href="#3-anexo-pytest" title="Permanent link">&para;</a></h2>
 <p><code>pytest</code> es un <em>framework</em> de testing para Python que permite escribir pruebas de manera sencilla y estructurada. Es más flexible y poderoso que <code>unittest</code>, ya que:</p>
 <ul>
 <li>Permite escribir pruebas con <strong>menos código</strong>.</li>
