@@ -731,108 +731,108 @@
 <p>Activar en la configuración del repositorio la protección de rama: <em>Settings/Code Automation/Branches/Branch protection rules</em>
     &gt; Aviso: hay dos formar de definir estos setting, la "clasica" y la nueva. En las instrucciones usamos la clásica.</p>
 <ul>
-<li>Elegir <code>main</code> </li>
+<li>Elegir <code>main</code></li>
 <li>Activar <strong>Require a pull request before merging</strong></li>
 <li>Activar <strong>Do not allow bypassing the above settings</strong> (para forzar a que el dueño del repositorio también tenga que hacer PR)
-<img alt="" src="../figuras/branch_protect.png" /></li>
+<img alt="branch_protect" src="../figuras/branch_protect.png" /></li>
 </ul>
 </li>
 <li>
-<p>Clonar el repositorio creado en local. Use el acceso con certificado (o por token). </p>
+<p>Clonar el repositorio creado en local. Use el acceso con certificado (o por token).</p>
 </li>
 <li>
-<p>Cambiar al directorio creado 
-    <div class="highlight"><pre><span></span><code>$ git clone git@github.com:userdemo/23-demo-pr.git
-$ cd 23-demo-pr/
-</code></pre></div></p>
+<p>Cambiar al directorio creado</p>
+<div class="highlight"><pre><span></span><code><span class="go">git clone git@github.com:userdemo/23-demo-pr.git</span>
+<span class="go">cd 23-demo-pr/</span>
+</code></pre></div>
 <blockquote>
-<p>recordatorio: crear certificado (y luego subirlo a GH)
-<div class="highlight"><pre><span></span><code>$ ssh-keygen -t ed25519 -C &quot;sucorreo@midominio.com&quot;
-$ cat .ssh/id_ed25519.pub
-</code></pre></div></p>
+<p>recordatorio: crear certificado (y luego subirlo a GH)</p>
+<div class="highlight"><pre><span></span><code><span class="go">ssh-keygen -t ed25519 -C &quot;sucorreo@midominio.com&quot;</span>
+<span class="go">cat .ssh/id_ed25519.pub</span>
+</code></pre></div>
 </blockquote>
 </li>
 <li>
-<p>Crear una rama con nombre por ejemplo <code>feature-xyz</code> y moverse a ella.
-    <div class="highlight"><pre><span></span><code>clases@vm:~/23-demo-pr$ git branch feature-xyz
-clases@vm:~/23-demo-pr$ git switch feature-xyz 
-</code></pre></div></p>
-</li>
-<li>
-<p>Crear un fichero de texto de prueba en la rama <code>feature-xyz</code>
-    <div class="highlight"><pre><span></span><code>clases@vm:~/23-demo-pr$ echo &quot;fichero de prueba para hacer PR&quot; &gt; doc.txt
-clases@vm:~/23-demo-pr$ git add doc.txt 
-clases@vm:~/23-demo-pr$ git commit -m &quot;update para prueba de PR&quot;
-[feature-xyz c974611] update para prueba de PR
-1 file changed, 1 insertion(+)
-create mode 100644 doc.txt
-clases@vm:~/23-demo-pr$ 
-</code></pre></div></p>
-</li>
-<li>
-<p>Añadir el fichero al stage (<code>git add</code>) y confirmarlo en el repositorio ( <code>git commit</code>)
-    <div class="highlight"><pre><span></span><code>clases@vm:~/23-demo-pr$ git add doc.txt 
-clases@vm:~/23-demo-pr$ git commit -m &quot;update para prueba de PR&quot;
-[feature-xyz c974611] update para prueba de PR
-1 file changed, 1 insertion(+)
-create mode 100644 doc.txt
-clases@vm:~/23-demo-pr$ 
-</code></pre></div></p>
-</li>
-<li>
-<p>Subir los cambios a GitHub mediante <code>git push</code>: no se realiza al no estar definido el <em>upstream</em> de la rama</p>
-<div class="highlight"><pre><span></span><code>clases@vm:~/23-demo-pr$ git push
-fatal: La rama actual feature-xyz no tiene una rama upstream.
-Para empujar la rama actual y configurar el remoto como upstream, usa
-
-    git push --set-upstream origin feature-xyz
-
-Para hacer que esto pase automáticamente para las ramas que no rastrean
-un upstream, mira &#39;push.autoSetupRemote&#39; en &#39;git help config&#39;.
-
-clases@vm:~/23-demo-pr$ 
+<p>Crear una rama con nombre por ejemplo <code>feature-xyz</code> y moverse a ella.</p>
+<div class="highlight"><pre><span></span><code><span class="gp">clases@vm:~/23-demo-pr$ </span>git<span class="w"> </span>branch<span class="w"> </span>feature-xyz
+<span class="gp">clases@vm:~/23-demo-pr$ </span>git<span class="w"> </span>switch<span class="w"> </span>feature-xyz<span class="w"> </span>
 </code></pre></div>
 </li>
 <li>
-<p>El mensaje de error nos indica como proceder: hacer <code>git push</code> configuradno e indicando  el <em>upstream</em>:
-    <div class="highlight"><pre><span></span><code>clases@vm:~/23-demo-pr$ git push --set-upstream origin feature-xyz
-Enter passphrase for key &#39;/home/clases/.ssh/id_ed25519&#39;: 
-Enumerando objetos: 4, listo.
-Contando objetos: 100% (4/4), listo.
-Compresión delta usando hasta 4 hilos
-Comprimiendo objetos: 100% (2/2), listo.
-Escribiendo objetos: 100% (3/3), 317 bytes | 317.00 KiB/s, listo.
-Total 3 (delta 0), reusados 0 (delta 0), pack-reusados 0
-remote: 
-remote: Create a pull request for &#39;feature-xyz&#39; on GitHub by visiting:
-remote:      https://github.com/userdemo/23-demo-pr/pull/new/feature-xyz
-remote: 
-To github.com:userdemo/23-demo-pr.git
-* [new branch]      feature-xyz -&gt; feature-xyz
-rama &#39;feature-xyz&#39; configurada para rastrear &#39;origin/feature-xyz&#39;.
-clases@vm:~/23-demo-pr$ 
-</code></pre></div></p>
+<p>Crear un fichero de texto de prueba en la rama <code>feature-xyz</code></p>
+<div class="highlight"><pre><span></span><code><span class="gp">clases@vm:~/23-demo-pr$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;fichero de prueba para hacer PR&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>doc.txt
+<span class="gp">clases@vm:~/23-demo-pr$ </span>git<span class="w"> </span>add<span class="w"> </span>doc.txt<span class="w"> </span>
+<span class="gp">clases@vm:~/23-demo-pr$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;update para prueba de PR&quot;</span>
+<span class="go">[feature-xyz c974611] update para prueba de PR</span>
+<span class="go">1 file changed, 1 insertion(+)</span>
+<span class="go">create mode 100644 doc.txt</span>
+<span class="gp">clases@vm:~/23-demo-pr$ </span>
+</code></pre></div>
+</li>
+<li>
+<p>Añadir el fichero al stage (<code>git add</code>) y confirmarlo en el repositorio ( <code>git commit</code>)</p>
+<div class="highlight"><pre><span></span><code><span class="gp">clases@vm:~/23-demo-pr$ </span>git<span class="w"> </span>add<span class="w"> </span>doc.txt<span class="w"> </span>
+<span class="gp">clases@vm:~/23-demo-pr$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;update para prueba de PR&quot;</span>
+<span class="go">[feature-xyz c974611] update para prueba de PR</span>
+<span class="go">1 file changed, 1 insertion(+)</span>
+<span class="go">create mode 100644 doc.txt</span>
+<span class="gp">clases@vm:~/23-demo-pr$ </span>
+</code></pre></div>
+</li>
+<li>
+<p>Subir los cambios a GitHub mediante <code>git push</code>: no se realiza al no estar definido el <em>upstream</em> de la rama</p>
+<div class="highlight"><pre><span></span><code><span class="gp">clases@vm:~/23-demo-pr$ </span>git<span class="w"> </span>push
+<span class="go">fatal: La rama actual feature-xyz no tiene una rama upstream.</span>
+<span class="go">Para empujar la rama actual y configurar el remoto como upstream, usa</span>
+
+<span class="go">    git push --set-upstream origin feature-xyz</span>
+
+<span class="go">Para hacer que esto pase automáticamente para las ramas que no rastrean</span>
+<span class="go">un upstream, mira &#39;push.autoSetupRemote&#39; en &#39;git help config&#39;.</span>
+
+<span class="gp">clases@vm:~/23-demo-pr$ </span>
+</code></pre></div>
+</li>
+<li>
+<p>El mensaje de error nos indica como proceder: hacer <code>git push</code> configuradno e indicando  el <em>upstream</em>:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">clases@vm:~/23-demo-pr$ </span>git<span class="w"> </span>push<span class="w"> </span>--set-upstream<span class="w"> </span>origin<span class="w"> </span>feature-xyz
+<span class="go">Enter passphrase for key &#39;/home/clases/.ssh/id_ed25519&#39;: </span>
+<span class="go">Enumerando objetos: 4, listo.</span>
+<span class="go">Contando objetos: 100% (4/4), listo.</span>
+<span class="go">Compresión delta usando hasta 4 hilos</span>
+<span class="go">Comprimiendo objetos: 100% (2/2), listo.</span>
+<span class="go">Escribiendo objetos: 100% (3/3), 317 bytes | 317.00 KiB/s, listo.</span>
+<span class="go">Total 3 (delta 0), reusados 0 (delta 0), pack-reusados 0</span>
+<span class="go">remote: </span>
+<span class="go">remote: Create a pull request for &#39;feature-xyz&#39; on GitHub by visiting:</span>
+<span class="go">remote:      https://github.com/userdemo/23-demo-pr/pull/new/feature-xyz</span>
+<span class="go">remote: </span>
+<span class="go">To github.com:userdemo/23-demo-pr.git</span>
+<span class="go">* [new branch]      feature-xyz -&gt; feature-xyz</span>
+<span class="go">rama &#39;feature-xyz&#39; configurada para rastrear &#39;origin/feature-xyz&#39;.</span>
+<span class="gp">clases@vm:~/23-demo-pr$ </span>
+</code></pre></div>
 </li>
 <li>
 <p>Observe que en la salida del comando  indica que es necesario <strong>crear un pull request</strong> y nos proporciona el enlace para hacerlo. Si lo sigue accedera a GitHub para abrir un Pull Request:</p>
-<p><img alt="" src="../figuras/open_pr.png" /></p>
+<p><img alt="figuras/open_pr.png" src="../figuras/open_pr.png" /></p>
 <p>También es posible hacerlo accediendo a GitHub ya que detecta el <code>push</code> y nos ofrece hacer el PR:</p>
-<p><img alt="" src="../figuras/aviso_pr.png" /></p>
+<p><img alt="figuras/aviso_pr.png" src="../figuras/aviso_pr.png" /></p>
 </li>
 <li>
-<p>Crear el Pull Request </p>
+<p>Crear el Pull Request</p>
 </li>
 <li>
 <p>Una vez creado el PR puede revisarlo en la pestaña <em>Pull Request</em> antes de fusionar con la rama principal o <code>main</code>.</p>
-<p><img alt="" src="../figuras/pr_list.png" /></p>
+<p><img alt="figuras/pr_list.png" src="../figuras/pr_list.png" /></p>
 <p>Observe que no se ha configurado ningún proceso de integración continua:</p>
-<p><img alt="" src="../figuras/pr_review.png" /></p>
+<p><img alt="figuras/pr_review.png" src="../figuras/pr_review.png" /></p>
 </li>
 <li>
-<p>Pulse el botón  <strong>Merge Pull Request</strong> y al confirmar el <em>merge</em> el fichero se añade a la rama principal. </p>
+<p>Pulse el botón  <strong>Merge Pull Request</strong> y al confirmar el <em>merge</em> el fichero se añade a la rama principal.</p>
 </li>
 </ol>
-<p><img alt="" src="../figuras/code_tras_pr.png" /></p>
+<p><img alt="figuras/code_tras_pr.png" src="../figuras/code_tras_pr.png" /></p>
 <h2 id="3-segunda-parte-actions">3. Segunda parte: <em>Actions</em><a class="headerlink" href="#3-segunda-parte-actions" title="Permanent link">&para;</a></h2>
 <h3 id="31-introduccion">3.1. Introducción<a class="headerlink" href="#31-introduccion" title="Permanent link">&para;</a></h3>
 <p>Las <strong>Actions de GitHub</strong> son una herramienta de <strong>integración continua (CI)</strong> y <strong>despliegue continuo (CD)</strong> proporcionada por GitHub. Te permiten automatizar flujos de trabajo relacionados con tu código, como la compilación, pruebas, despliegues y otras tareas personalizadas.</p>
@@ -851,7 +851,7 @@ clases@vm:~/23-demo-pr$
 </ul>
 <p>Como ejemplo se  añadirá un  <em>Action</em>. Su objetivo es que cuando se haga un PR a la rama principal se haga el proceso de <em>linting</em> de los ficheros nuevos o modificados en esa rama. El <em>Action</em> dará como resultado si el proceso de <em>linting</em> es correcto o no. En este ejemplo se usarán ficheros Python y como <em>linter</em> las herramientas <em>pylint</em> o <em>flake8</em>.</p>
 <h3 id="32-action-definicion">3.2. Action: definición<a class="headerlink" href="#32-action-definicion" title="Permanent link">&para;</a></h3>
-<p>Las Action se configuran mediante ficheros YAML en el directorio <code>.github/workflows</code>. Puede usar las Actions que proporciona GitHub o crearla de forma manual usando la opción <em>Skip this and set up a workflow yourself</em>. </p>
+<p>Las Action se configuran mediante ficheros YAML en el directorio <code>.github/workflows</code>. Puede usar las Actions que proporciona GitHub o crearla de forma manual usando la opción <em>Skip this and set up a workflow yourself</em>.</p>
 <p>Para simplificar este apartado se le proporciona ya un fichero creado a partir de una de las <em>Actions</em> que proporciona GitHub.</p>
 <blockquote>
 <p>Nota: En el <a href="https://github.com/marketplace?type=actions">marketplace</a> hay otras soluciones para automatizar este proceso.</p>
@@ -917,14 +917,14 @@ clases@vm:~/23-demo-pr$
 <ul>
 <li>
 <p>Añadir el Action desde la pestaña Actions de GitHub. Tendrá además que hacer un PR ya que no olvide que la rama <code>main</code> está protegida. El Action se almacena en el directorio <code>.github/workflows</code>. Puede comprobar que se ha añadido correctamente en la pestaña de <em>Actions</em></p>
-<p><img alt="" src="../figuras/action_list.png" /></p>
+<p><img alt="figuras/action_list.png" src="../figuras/action_list.png" /></p>
 </li>
 <li>
 <p>Crear el fichero en su repositorio local. Tendrá que crear el directorio <code>.github/workflows</code> y el fichero dentro del mismo. Luego trabajar en una rama, y subir el fichero a GitHub haciendo un Pull Request. Comprobar que se ha creado el Action en la pestaña Actions.</p>
 </li>
 </ul>
 <h3 id="34-action-prueba">3.4. Action: prueba<a class="headerlink" href="#34-action-prueba" title="Permanent link">&para;</a></h3>
-<p>Necesita un fichero Python en el repositorio local para subirlo y comprobar que el Action se activa y hace el linting. Para ello basta un fichero muy simple con algún error. </p>
+<p>Necesita un fichero Python en el repositorio local para subirlo y comprobar que el Action se activa y hace el linting. Para ello basta un fichero muy simple con algún error.</p>
 <ul>
 <li>
 <p>Crear el fichero Python <code>app.py</code> en su equipo:</p>
@@ -936,115 +936,115 @@ clases@vm:~/23-demo-pr$
 <span class="sd">&quot;&quot;&quot; Docstring del módulo &quot;&quot;&quot;</span>
 
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">suma</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">suma</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; docstring function</span>
 <span class="sd">        # debe dar errores en linter</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;no se usa&quot;</span>
         <span class="k">return</span> <span class="n">a</span><span class="o">+</span> <span class="n">b</span>
-    <span class="n">clases</span><span class="nd">@vm</span><span class="p">:</span><span class="o">~/</span><span class="mi">23</span><span class="o">-</span><span class="n">demo</span><span class="o">-</span><span class="n">pr</span><span class="err">$</span>
+<span class="n">clases</span><span class="nd">@vm</span><span class="p">:</span><span class="o">~/</span><span class="mi">23</span><span class="o">-</span><span class="n">demo</span><span class="o">-</span><span class="n">pr</span><span class="err">$</span>
 </code></pre></div>
 </li>
 <li>
-<p>Repetimos el proceso de <code>git add</code>, <code>git commit</code>, <code>git push</code>, etc
-    <div class="highlight"><pre><span></span><code>clases@vm:~/23-demo-pr$ git add app.py 
-clases@vm:~/23-demo-pr$ git commit -m &quot;añadimos fichero .py para probar Action&quot;
-[miapp c02ded4] añadimos fichero .py para probar Action
-1 file changed, 9 insertions(+)
-create mode 100644 app.py
-clases@vm:~/23-demo-pr$ git push
-fatal: La rama actual miapp no tiene una rama upstream.
-Para empujar la rama actual y configurar el remoto como upstream, usa
+<p>Repetimos el proceso de <code>git add</code>, <code>git commit</code>, <code>git push</code>, etc</p>
+<div class="highlight"><pre><span></span><code><span class="gp">clases@vm:~/23-demo-pr$ </span>git<span class="w"> </span>add<span class="w"> </span>app.py<span class="w"> </span>
+<span class="gp">clases@vm:~/23-demo-pr$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;añadimos fichero .py para probar Action&quot;</span>
+<span class="go">[miapp c02ded4] añadimos fichero .py para probar Action</span>
+<span class="go">1 file changed, 9 insertions(+)</span>
+<span class="go">create mode 100644 app.py</span>
+<span class="gp">clases@vm:~/23-demo-pr$ </span>git<span class="w"> </span>push
+<span class="go">fatal: La rama actual miapp no tiene una rama upstream.</span>
+<span class="go">Para empujar la rama actual y configurar el remoto como upstream, usa</span>
 
-    git push --set-upstream origin miapp
+<span class="go">    git push --set-upstream origin miapp</span>
 
-Para hacer que esto pase automáticamente para las ramas que no rastrean
-un upstream, mira &#39;push.autoSetupRemote&#39; en &#39;git help config&#39;.
+<span class="go">Para hacer que esto pase automáticamente para las ramas que no rastrean</span>
+<span class="go">un upstream, mira &#39;push.autoSetupRemote&#39; en &#39;git help config&#39;.</span>
 
-clases@vm:~/23-demo-pr$ git push --set-upstream origin miapp
-Enter passphrase for key &#39;/home/clases/.ssh/id_ed25519&#39;: 
-Enumerando objetos: 4, listo.
-Contando objetos: 100% (4/4), listo.
-Compresión delta usando hasta 4 hilos
-Comprimiendo objetos: 100% (3/3), listo.
-Escribiendo objetos: 100% (3/3), 485 bytes | 485.00 KiB/s, listo.
-Total 3 (delta 0), reusados 0 (delta 0), pack-reusados 0
-remote: 
-remote: Create a pull request for &#39;miapp&#39; on GitHub by visiting:
-remote:      https://github.com/userdemo/23-demo-pr/pull/new/miapp
-remote: 
-To github.com:userdemo/23-demo-pr.git
-* [new branch]      miapp -&gt; miapp
-rama &#39;miapp&#39; configurada para rastrear &#39;origin/miapp&#39;.
-clases@vm:~/23-demo-pr$
-</code></pre></div></p>
+<span class="gp">clases@vm:~/23-demo-pr$ </span>git<span class="w"> </span>push<span class="w"> </span>--set-upstream<span class="w"> </span>origin<span class="w"> </span>miapp
+<span class="go">Enter passphrase for key &#39;/home/clases/.ssh/id_ed25519&#39;: </span>
+<span class="go">Enumerando objetos: 4, listo.</span>
+<span class="go">Contando objetos: 100% (4/4), listo.</span>
+<span class="go">Compresión delta usando hasta 4 hilos</span>
+<span class="go">Comprimiendo objetos: 100% (3/3), listo.</span>
+<span class="go">Escribiendo objetos: 100% (3/3), 485 bytes | 485.00 KiB/s, listo.</span>
+<span class="go">Total 3 (delta 0), reusados 0 (delta 0), pack-reusados 0</span>
+<span class="go">remote: </span>
+<span class="go">remote: Create a pull request for &#39;miapp&#39; on GitHub by visiting:</span>
+<span class="go">remote:      https://github.com/userdemo/23-demo-pr/pull/new/miapp</span>
+<span class="go">remote: </span>
+<span class="go">To github.com:userdemo/23-demo-pr.git</span>
+<span class="go">* [new branch]      miapp -&gt; miapp</span>
+<span class="go">rama &#39;miapp&#39; configurada para rastrear &#39;origin/miapp&#39;.</span>
+<span class="gp">clases@vm:~/23-demo-pr$</span>
+</code></pre></div>
 </li>
 <li>
-<p>Hay que hacer un <em>Pull Request</em> como indica  la salida del comando. </p>
+<p>Hay que hacer un <em>Pull Request</em> como indica  la salida del comando.</p>
 </li>
 <li>Una vez realizado revisarlo: vea como no se han superado los tests, pero aún así es posible hacer un <em>merge</em> e incorporar el fichero a la rama <code>main</code>:</li>
 </ul>
-<p><img alt="" src="../figuras/action_failed.png" /></p>
+<p><img alt="figuras/action_failed.png" src="../figuras/action_failed.png" /></p>
 <ul>
 <li>Puede revisar los detalles del error en los <em>Details</em>:</li>
 </ul>
-<p><img alt="" src="../figuras/action_failed_details.png" /></p>
+<p><img alt="figuras/action_failed_details.png" src="../figuras/action_failed_details.png" /></p>
 <h2 id="4-tercera-parte-action-con-require-status-checks">4. Tercera parte: Action con <em>require status checks</em><a class="headerlink" href="#4-tercera-parte-action-con-require-status-checks" title="Permanent link">&para;</a></h2>
 <p>El <strong>objetivo es impedir la fusión del código si no se superan los test</strong> del Action. Para ello es necesario hacer cambios en la configuración del repositorio.</p>
 <h3 id="41-configurar-el-repositorio">4.1. Configurar el repositorio<a class="headerlink" href="#41-configurar-el-repositorio" title="Permanent link">&para;</a></h3>
 <p>Primero es necesario modificar algunos <em>settings</em> del repositorio. En este caso debe:</p>
 <ul>
-<li>
-<p>Activar la opción <strong><em>Branches/ Protect matching branches / Require status checks to pass before merging</em></strong> </p>
-<ul>
+<li>Activar la opción <strong><em>Branches/ Protect matching branches / Require status checks to pass before merging</em></strong></li>
 <li>En la entrada de búsqueda se indican el nombre de las tareas del Action que debe superar. En cuanto escribe "build" le ofrece las dos posibilidades, coja la 3.10 por ejemplo (se pueden añadir varias)</li>
-<li>No olvide guardar los cambios.</li>
-</ul>
-<p><img alt="" src="../figuras/branch_status.png" /></p>
+<li>
+<p>No olvide guardar los cambios.</p>
+<p><img alt="figuras/branch_status.png" src="../figuras/branch_status.png" /></p>
 </li>
 </ul>
 <h3 id="42-probar-action-con-check-status">4.2. Probar Action con check status<a class="headerlink" href="#42-probar-action-con-check-status" title="Permanent link">&para;</a></h3>
 <p>Los pasos a dar son:</p>
 <ol>
-<li>Edite el fichero <code>app.py</code>. Debe modificar algo para que se pueda hacer un <code>git commit</code>, pero mantener el error de la variable no usada:
-    <div class="highlight"><pre><span></span><code>clases@vm:~/23-demo-pr$ git add app.py 
-clases@vm:~/23-demo-pr$ git commit -m &quot;segunda prueba del Action: no debe dejar merge&quot;
-[miapp 89a7343] segunda prueba del Action: no debe dejar merge
-1 file changed, 4 insertions(+), 2 deletions(-)
-clases@vm:~/23-demo-pr$
-</code></pre></div></li>
 <li>
-<p>Suba los cambios a Github:
-    <div class="highlight"><pre><span></span><code>clases@vm:~/23-demo-pr$ git push
-Enter passphrase for key &#39;/home/clases/.ssh/id_ed25519&#39;: 
-Enumerando objetos: 5, listo.
-Contando objetos: 100% (5/5), listo.
-Compresión delta usando hasta 4 hilos
-Comprimiendo objetos: 100% (3/3), listo.
-Escribiendo objetos: 100% (3/3), 347 bytes | 347.00 KiB/s, listo.
-Total 3 (delta 2), reusados 0 (delta 0), pack-reusados 0
-remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
-To github.com:userdemo/23-demo-pr.git
-  c02ded4..89a7343  miapp -&gt; miapp
-clases@vm:~/23-demo-pr$ 
-</code></pre></div></p>
+<p>Edite el fichero <code>app.py</code>. Debe modificar algo para que se pueda hacer un <code>git commit</code>, pero mantener el error de la variable no usada:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">clases@vm:~/23-demo-pr$ </span>git<span class="w"> </span>add<span class="w"> </span>app.py<span class="w"> </span>
+<span class="gp">clases@vm:~/23-demo-pr$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;segunda prueba del Action: no debe dejar merge&quot;</span>
+<span class="go">[miapp 89a7343] segunda prueba del Action: no debe dejar merge</span>
+<span class="go">1 file changed, 4 insertions(+), 2 deletions(-)</span>
+<span class="gp">clases@vm:~/23-demo-pr$</span>
+</code></pre></div>
+</li>
+<li>
+<p>Suba los cambios a Github:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">clases@vm:~/23-demo-pr$ </span>git<span class="w"> </span>push
+<span class="go">Enter passphrase for key &#39;/home/clases/.ssh/id_ed25519&#39;: </span>
+<span class="go">Enumerando objetos: 5, listo.</span>
+<span class="go">Contando objetos: 100% (5/5), listo.</span>
+<span class="go">Compresión delta usando hasta 4 hilos</span>
+<span class="go">Comprimiendo objetos: 100% (3/3), listo.</span>
+<span class="go">Escribiendo objetos: 100% (3/3), 347 bytes | 347.00 KiB/s, listo.</span>
+<span class="go">Total 3 (delta 2), reusados 0 (delta 0), pack-reusados 0</span>
+<span class="go">remote: Resolving deltas: 100% (2/2), completed with 2 local objects.</span>
+<span class="go">To github.com:userdemo/23-demo-pr.git</span>
+<span class="go">  c02ded4..89a7343  miapp -&gt; miapp</span>
+<span class="gp">clases@vm:~/23-demo-pr$ </span>
+</code></pre></div>
 <p>Observe que en este ejemplo <code>git push</code> bo ofrece configurar el <em>upstream</em> porque ya estaba hecho antes, ni ofrece el enlace al <em>Pull Request</em>. En este caso particular es debido a que se está trabajando sobre la misma rama y el Pull Request anterior no se ha cerrado (puede ser que en su ejecución sea distitno si ha iniciado una nueva rama por ejemplo). En este caso para continuar con el PR debe ir a GitHub, donde le indica esa posibilidad:</p>
-<p><img alt="" src="../figuras/pr_en_main.png" /></p>
+<p><img alt="figuras/pr_en_main.png" src="../figuras/pr_en_main.png" /></p>
 </li>
 <li>
 <p>Puede comprobar en el Pull Request abierto que <strong>ahora no es posible aceptar los cambios y hacer un merge</strong>:</p>
-<p><img alt="" src="../figuras/action_failed_status_check.png" /></p>
+<p><img alt="figuras/action_failed_status_check.png" src="../figuras/action_failed_status_check.png" /></p>
 </li>
 </ol>
 <h3 id="43-corregir-el-codigo-para-superar-el-check">4.3. Corregir el código para superar el check<a class="headerlink" href="#43-corregir-el-codigo-para-superar-el-check" title="Permanent link">&para;</a></h3>
 <p>Posible proceso de correción:</p>
 <ol>
-<li>El adminstrador comenta en el PR que es necesario hacer correcciones. </li>
+<li>El adminstrador comenta en el PR que es necesario hacer correcciones.</li>
 <li>El editor en local revisa el código, corrige los errores y vuelve a realizar el push.</li>
 <li>Este nuevo commit se refleja en el <em>Pull Request</em> ya abierto.</li>
 <li>
 <p>Ahora el código si pasa el proceso de lintig y el administrador puede hacer el merge.</p>
-<p><img alt="" src="../figuras/action_ok_status_check.png" /></p>
+<p><img alt="figuras/action_ok_status_check.png" src="../figuras/action_ok_status_check.png" /></p>
 </li>
 </ol>
 <h2 id="5-ejercicio-anadir-testing">5. Ejercicio: añadir Testing<a class="headerlink" href="#5-ejercicio-anadir-testing" title="Permanent link">&para;</a></h2>
@@ -1084,25 +1084,19 @@ clases@vm:~/23-demo-pr$
 </code></pre></div>
 <h2 id="6-enlaces-de-ampliacion">6. Enlaces de ampliación<a class="headerlink" href="#6-enlaces-de-ampliacion" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Control de versiones<ul>
+<li>Control de versiones</li>
 <li><a href="https://git-scm.com/">Git</a></li>
 <li><a href="https://github.com/">GitHub</a></li>
 <li><a href="https://www.atlassian.com/es/git/tutorials/comparing-workflows/gitflow-workflow">Git Flow</a></li>
-</ul>
-</li>
-<li>Actions<ul>
+<li>Actions</li>
 <li><a href="https://resources.github.com/actions/github-actions-cheat/">GitHub Actions Cheat Sheet</a></li>
 <li><a href="https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions">Understanding GitHub Actions</a></li>
-<li><a href="https://binary-studio.com/blog/2021/12/21/lint-your-project-with-github-actions/">Lint your project with Github Actions</a> </li>
-</ul>
-</li>
-<li>Python<ul>
+<li><a href="https://binary-studio.com/blog/2021/12/21/lint-your-project-with-github-actions/">Lint your project with Github Actions</a></li>
+<li>Python</li>
 <li><a href="https://flask.palletsprojects.com/en/3.0.x/">Flask</a></li>
 <li><a href="https://docs.python.org/3/library/unittest.html">unittest</a></li>
 <li><a href="https://flake8.pycqa.org/en/latest/">Flake8</a></li>
 <li><a href="https://github.com/marketplace/actions/python-flake8-lint">Python lint actions</a></li>
-</ul>
-</li>
 </ul>
 
 

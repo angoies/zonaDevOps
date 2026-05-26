@@ -829,38 +829,38 @@
 <h2 id="1-introduccion">1. Introducción<a class="headerlink" href="#1-introduccion" title="Permanent link">&para;</a></h2>
 <p>Se parte de un aplicación Python sobre Flask. El objetivo es que cambios en el repositorio en Github:</p>
 <ol>
-<li>disparen la creación de una imagen Docker, </li>
-<li>que dicha imagen se actualice en DockerHub, </li>
+<li>disparen la creación de una imagen Docker,</li>
+<li>que dicha imagen se actualice en DockerHub,</li>
 <li>y que finalmente  se despliegue en AWS.</li>
 </ol>
 <h2 id="2-conociendo-la-aplicacion">2. Conociendo la aplicación<a class="headerlink" href="#2-conociendo-la-aplicacion" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p><strong>Aviso</strong>: antes de comenzar se recomienda ejecutar estos comandos en la máquina virtual:</p>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl restart docker.service 
-$ sudo systemctl restart networking.service
+<div class="highlight"><pre><span></span><code><span class="go">sudo systemctl restart docker.service </span>
+<span class="go">sudo systemctl restart networking.service</span>
 </code></pre></div>
 </blockquote>
 <h3 id="21-prueba-en-local">2.1. Prueba en local<a class="headerlink" href="#21-prueba-en-local" title="Permanent link">&para;</a></h3>
-<p>Para probar la aplicación en local debe: </p>
+<p>Para probar la aplicación en local debe:</p>
 <ol>
-<li>Crear un entorno virtual Python </li>
-<li>Activar ese entorno virtual, </li>
+<li>Crear un entorno virtual Python</li>
+<li>Activar ese entorno virtual,</li>
 <li>Instalar las dependencias</li>
 <li>Iniciar la aplicación desde el interprete Python.</li>
 </ol>
 <p>Estos son los comandos necesarios:</p>
-<div class="highlight"><pre><span></span><code>$ python3 -m venv venv
-$ source venv/bin/activate
-(venv) $ pip install -r requirements.txt 
-(venv) $ python src/app.py 
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+<span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>venv/bin/activate
+<span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w"> </span>
+<span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>python<span class="w"> </span>src/app.py<span class="w"> </span>
 </code></pre></div>
 <p>Puede verificar que la aplicación está funcionando con <code>curl</code> o accediendo con el navegador:</p>
-<div class="highlight"><pre><span></span><code>$ curl http://localhost:5000
-$ curl http://localhost:5000/status
-$ firefox http://localhost:5000 &amp;
+<div class="highlight"><pre><span></span><code>curl http://localhost:5000
+curl http://localhost:5000/status
+firefox http://localhost:5000 &amp;
 </code></pre></div>
 <p>En producción es preferible iniciar la aplicación con un servidor como <code>gunicorn</code>. El comando en ese caso sería:</p>
-<div class="highlight"><pre><span></span><code>$ gunicorn --chdir src app:app --bind 0.0.0.0:5000 
+<div class="highlight"><pre><span></span><code><span class="go">gunicorn --chdir src app:app --bind 0.0.0.0:5000 </span>
 </code></pre></div>
 <h3 id="22-creacion-imagen-docker">2.2. Creación imagen Docker<a class="headerlink" href="#22-creacion-imagen-docker" title="Permanent link">&para;</a></h3>
 <p>Se le facilita un fichero <code>Dockerfile</code> para "dockerizar" la aplicación:</p>
@@ -888,7 +888,7 @@ Dockerfile  README.md  requirements.txt src venv
 (venv) $ firefox http://localhost:80 &amp;
 </code></pre></div>
 <p>Termine parando y borrando el contenedor:</p>
-<div class="highlight"><pre><span></span><code>(venv) $ docker stop testgaleria &amp;&amp; docker rm testgaleria
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>docker<span class="w"> </span>stop<span class="w"> </span>testgaleria<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>rm<span class="w"> </span>testgaleria
 </code></pre></div>
 <h3 id="23-prueba-imagen-en-local-con-composeyml">2.3. Prueba imagen en local con compose.yml<a class="headerlink" href="#23-prueba-imagen-en-local-con-composeyml" title="Permanent link">&para;</a></h3>
 <p>En este apartado se proporciona un  fichero  <code>docker-compose.yml</code> para lanzar el servicio (modificando el fichero para indicar su usuario en DockerHub):</p>
@@ -901,14 +901,14 @@ Dockerfile  README.md  requirements.txt src venv
 <span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
 </code></pre></div>
 <p>Pruebe con <code>docker compose</code> a iniciar y detener la aplicación:</p>
-<div class="highlight"><pre><span></span><code>(venv) $ docker compose  up -d 
-(venv) $ curl http://localhost
-(venv) $ firefox http://localhost:80 &amp;
-(venv) $ docker compose  down
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>docker<span class="w"> </span>compose<span class="w">  </span>up<span class="w"> </span>-d<span class="w"> </span>
+<span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>curl<span class="w"> </span>http://localhost
+<span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>firefox<span class="w"> </span>http://localhost:80<span class="w"> </span><span class="p">&amp;</span>
+<span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>docker<span class="w"> </span>compose<span class="w">  </span>down
 </code></pre></div>
 <h3 id="24-subir-imagen-a-dockerhub">2.4. Subir imagen a dockerhub<a class="headerlink" href="#24-subir-imagen-a-dockerhub" title="Permanent link">&para;</a></h3>
 <p>Suba la imagen a DockerHub para comprobar su usuario, permisos, etc:</p>
-<div class="highlight"><pre><span></span><code>(venv) $ docker push  &lt;usuariodockerhub&gt;/galeria:latest
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>docker<span class="w"> </span>push<span class="w">  </span>&lt;usuariodockerhub&gt;/galeria:latest
 </code></pre></div>
 <h2 id="3-actions-build-and-push">3. Actions: build and push<a class="headerlink" href="#3-actions-build-and-push" title="Permanent link">&para;</a></h2>
 <p>Vamos a crear un action que ejecute en GitHub de forma automática los pasos anteriores: construir la imagen y subirla a DockerHub.</p>
@@ -917,25 +917,26 @@ Dockerfile  README.md  requirements.txt src venv
 <blockquote>
 <p><strong>Actions secrets and variables</strong></p>
 <p>Secrets and variables allow you to manage reusable configuration data. Secrets are encrypted and are used for sensitive data. Learn more about encrypted secrets. Variables are shown as plain text and are used for non-sensitive data. Learn more about variables.</p>
-<p>Anyone with collaborator access to this repository can use these secrets and variables for actions. They are not passed to workflows that are triggered by a pull request from a fork. 
+<p>Anyone with collaborator access to this repository can use these secrets and variables for actions. They are not passed to workflows that are triggered by a pull request from a fork.
 </p>
 </blockquote>
 <p>Para más información: <a href="https://docs.github.com/es/actions/security-guides/using-secrets-in-github-actions">Uso de secretos en Acciones de GitHub</a></p>
-<p>El nombre que utilice al crear el secreto en la consola de administración de GitHub será el que debe utilizar en el Action. </p>
+<p>El nombre que utilice al crear el secreto en la consola de administración de GitHub será el que debe utilizar en el Action.</p>
 <p>En este ejemplo se usan dos secretos:</p>
 <ul>
 <li><code>DOCKERHUB_USERNAME</code>: su usuario en DockerHub</li>
 <li><code>DOCKERHUB_TOKEN</code>: un token de acceso que debe generar en DockerHub</li>
 </ul>
 <p>Para obtener el <em>token</em> de acceso en DockerHub  acceda a su web (<em>Account Settings/Security</em>):
-<img alt="" src="../figuras/dockerhub_token_01.png" />
-<img alt="" src="../figuras/dockerhub_token_02.png" /></p>
+<img alt="figuras/dockerhub_token_01.png" src="../figuras/dockerhub_token_01.png" /></p>
+<p>Y la creación:</p>
+<p><img alt="figuras/dockerhub_token_02.png" src="../figuras/dockerhub_token_02.png" /></p>
 <p>No olvide <strong>copiar y guardar el token generado</strong> ya que lo va a necesitar para introducirlo en el secreto de GitHub.</p>
 <h4 id="311-crear-el-secreto">3.1.1. Crear el secreto<a class="headerlink" href="#311-crear-el-secreto" title="Permanent link">&para;</a></h4>
-<p>La ruta para crear un secreto en GitHub es <em>Settings del repositorio / Security / Secrets and Variabls / Actions</em>. </p>
-<p><img alt="" src="../figuras/github_secret_01.png" /></p>
+<p>La ruta para crear un secreto en GitHub es <em>Settings del repositorio / Security / Secrets and Variabls / Actions</em>.</p>
+<p><img alt="figuras/github_secret_01.png" src="../figuras/github_secret_01.png" /></p>
 <p>Ahora ya puede generar los dos secretos en GitHub. Tras añadirlos debe aparecer algo similar a:</p>
-<p><img alt="" src="../figuras/github_secret_02.png" /></p>
+<p><img alt="figuras/github_secret_02.png" src="../figuras/github_secret_02.png" /></p>
 <h3 id="32-crear-el-action">3.2. Crear el Action<a class="headerlink" href="#32-crear-el-action" title="Permanent link">&para;</a></h3>
 <p>En este ejemplo el Action que se muestra utiliza otras Actions predefinidas:</p>
 <ol>
@@ -943,7 +944,7 @@ Dockerfile  README.md  requirements.txt src venv
 <li><code>docker/login-action</code>: Inicia sesión en un registro de Docker.Es el equivalente a escribir docker login en terminal.</li>
 <li><code>docker/build-push-action</code>: crea la imagen a partir del Dockerfile y opcionalmente la sube al registro del paso anterior.</li>
 </ol>
-<p>Para acceder a la información almacenada en un secreto se usa la notación <code>${{ secrets.NOMBRE_DEL_SECRETO }}</code>. </p>
+<p>Para acceder a la información almacenada en un secreto se usa la notación <code>${{ secrets.NOMBRE_DEL_SECRETO }}</code>.</p>
 <p>El fichero con el action debe ser similar a este. Puede observar que el <em>Action</em> se dispara con cambios en el directorio <code>src</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Docker CI/CD</span>
 
@@ -1054,9 +1055,9 @@ Dockerfile  README.md  requirements.txt src venv
 <li>Los <code>jobs</code> dentro de un <code>workflow</code> se ejecutan en paralelo.</li>
 <li>Los flujos dentro de un repositorio también se ejecutan en paralelo.</li>
 </ul>
-<p>Si desea ejecutar proceso en secuencia tenemos dos opciones:</p>
+<p>Si desea ejecutar procesos en secuencia tiene dos opciones:</p>
 <ul>
-<li>Action con varios jobs "ecadenados"</li>
+<li>Action con varios jobs "encadenados"</li>
 <li>Varios Actions encadenados entre si.</li>
 </ul>
 <h3 id="51-action-con-varios-jobs">5.1. Action con varios jobs<a class="headerlink" href="#51-action-con-varios-jobs" title="Permanent link">&para;</a></h3>
@@ -1084,7 +1085,7 @@ Dockerfile  README.md  requirements.txt src venv
 <span class="w">      </span><span class="c1">###  apsos del deploy</span>
 </code></pre></div>
 <h3 id="52-varios-actions">5.2. Varios Actions<a class="headerlink" href="#52-varios-actions" title="Permanent link">&para;</a></h3>
-<p>Si tiene varios ficheros con workflows y desea ejecutarlos en un orden específico puedes utilizar la clave  <code>workflow_run</code>. Esta permite desencadenar un flujo de trabajo basado en el éxito o fracaso de otro. </p>
+<p>Si tiene varios ficheros con workflows y desea ejecutarlos en un orden específico puedes utilizar la clave  <code>workflow_run</code>. Esta permite desencadenar un flujo de trabajo basado en el éxito o fracaso de otro.</p>
 <p>Si por ejemplo tiene tres ficheros <code>lint.yml</code>, <code>test.yml</code>y <code>deploy.yml</code> y los quiere ejecutar en ese orden los ficheros serían similares a:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Archivo lint.yml, NO SE AÑADE NADA</span>
 <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Lint</span><span class="w">   </span><span class="c1"># Nombre del flujo, se usa en test.yml</span>
