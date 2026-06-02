@@ -431,30 +431,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-anexo-orden-de-ejecucion-en-los-actions" class="md-nav__link">
+  <a href="#5-anexos" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Anexo: Orden de ejecución en los Actions
+      5. Anexos
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="5. Anexo: Orden de ejecución en los Actions">
+    <nav class="md-nav" aria-label="5. Anexos">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#51-action-con-varios-jobs" class="md-nav__link">
+  <a href="#51-localizacion-de-ficheros" class="md-nav__link">
     <span class="md-ellipsis">
-      5.1. Action con varios jobs
+      5.1. Localización de ficheros
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#52-varios-actions" class="md-nav__link">
+  <a href="#52-orden-de-ejecucion-en-los-actions" class="md-nav__link">
     <span class="md-ellipsis">
-      5.2. Varios Actions
+      5.2. Orden de ejecución en los Actions
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="5.2. Orden de ejecución en los Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#521-action-con-varios-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.1. Action con varios jobs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#522-varios-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.2. Varios Actions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -548,28 +572,6 @@
             Utiles
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../devops_05_testing/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Testing
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
             
               
                 
@@ -777,30 +779,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-anexo-orden-de-ejecucion-en-los-actions" class="md-nav__link">
+  <a href="#5-anexos" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Anexo: Orden de ejecución en los Actions
+      5. Anexos
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="5. Anexo: Orden de ejecución en los Actions">
+    <nav class="md-nav" aria-label="5. Anexos">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#51-action-con-varios-jobs" class="md-nav__link">
+  <a href="#51-localizacion-de-ficheros" class="md-nav__link">
     <span class="md-ellipsis">
-      5.1. Action con varios jobs
+      5.1. Localización de ficheros
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#52-varios-actions" class="md-nav__link">
+  <a href="#52-orden-de-ejecucion-en-los-actions" class="md-nav__link">
     <span class="md-ellipsis">
-      5.2. Varios Actions
+      5.2. Orden de ejecución en los Actions
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="5.2. Orden de ejecución en los Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#521-action-con-varios-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.1. Action con varios jobs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#522-varios-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.2. Varios Actions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1048,7 +1074,20 @@ Dockerfile  README.md  requirements.txt src venv
 </code></pre></div>
 <h3 id="43-prueba">4.3. Prueba<a class="headerlink" href="#43-prueba" title="Permanent link">&para;</a></h3>
 <p>Basta con volver a modificar el código en el directorio <code>src</code>. Esto dispara la creación de la imagen y si es correcta dispara el trabajo de despliegue en AWS EC2.</p>
-<h2 id="5-anexo-orden-de-ejecucion-en-los-actions">5. Anexo: Orden de ejecución en los Actions<a class="headerlink" href="#5-anexo-orden-de-ejecucion-en-los-actions" title="Permanent link">&para;</a></h2>
+<h2 id="5-anexos">5. Anexos<a class="headerlink" href="#5-anexos" title="Permanent link">&para;</a></h2>
+<h3 id="51-localizacion-de-ficheros">5.1. Localización de ficheros<a class="headerlink" href="#51-localizacion-de-ficheros" title="Permanent link">&para;</a></h3>
+<p>En el action <code>docker/build-push-action@v5</code> se indica que el contexto para construir la imagen es el directorio raíz del repositorio:</p>
+<div class="highlight"><pre><span></span><code><span class="w">          </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+</code></pre></div>
+<p>Para decirle que el <code>Dockerfile</code> está en una carpeta diferente y no en la raíz debe usar el parámetro <code>file</code> e indicar la ruta exacta al <code>Dockerfile</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="w">          </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+<span class="w">          </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./carpeta/Dockerfile</span>
+</code></pre></div>
+<p>Y si tanto los archivos del proyecto como el <code>Dockerfile</code> están dentro de esa subcarpeta:</p>
+<div class="highlight"><pre><span></span><code><span class="w">          </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./carpeta</span>
+<span class="w">          </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./carpeta/Dockerfile</span>
+</code></pre></div>
+<h3 id="52-orden-de-ejecucion-en-los-actions">5.2. Orden de ejecución en los Actions<a class="headerlink" href="#52-orden-de-ejecucion-en-los-actions" title="Permanent link">&para;</a></h3>
 <p>Tenga en cuenta que:</p>
 <ul>
 <li>Dentro de un <code>job</code> los <code>steps</code> se ejecutan de forma secuencial.</li>
@@ -1060,7 +1099,7 @@ Dockerfile  README.md  requirements.txt src venv
 <li>Action con varios jobs "encadenados"</li>
 <li>Varios Actions encadenados entre si.</li>
 </ul>
-<h3 id="51-action-con-varios-jobs">5.1. Action con varios jobs<a class="headerlink" href="#51-action-con-varios-jobs" title="Permanent link">&para;</a></h3>
+<h4 id="521-action-con-varios-jobs">5.2.1. Action con varios jobs<a class="headerlink" href="#521-action-con-varios-jobs" title="Permanent link">&para;</a></h4>
 <p>Si desea que un <code>job</code> se ejecuta tras otro debe usar la clave <code>needs: &lt;nombre_job&gt;</code> para indicar que  el trabajo no se lanza hasta que <code>nombre_job</code> haya terminado correctamente.</p>
 <p>Vea un ejemplo:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">jobs</span><span class="p">:</span>
@@ -1084,7 +1123,7 @@ Dockerfile  README.md  requirements.txt src venv
 <span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
 <span class="w">      </span><span class="c1">###  apsos del deploy</span>
 </code></pre></div>
-<h3 id="52-varios-actions">5.2. Varios Actions<a class="headerlink" href="#52-varios-actions" title="Permanent link">&para;</a></h3>
+<h4 id="522-varios-actions">5.2.2. Varios Actions<a class="headerlink" href="#522-varios-actions" title="Permanent link">&para;</a></h4>
 <p>Si tiene varios ficheros con workflows y desea ejecutarlos en un orden específico puedes utilizar la clave  <code>workflow_run</code>. Esta permite desencadenar un flujo de trabajo basado en el éxito o fracaso de otro.</p>
 <p>Si por ejemplo tiene tres ficheros <code>lint.yml</code>, <code>test.yml</code>y <code>deploy.yml</code> y los quiere ejecutar en ese orden los ficheros serían similares a:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Archivo lint.yml, NO SE AÑADE NADA</span>
